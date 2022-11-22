@@ -8,6 +8,7 @@ const Home = lazy(() => import('../pages/Home'));
 const Diary = lazy(() => import('../pages/Diary'));
 const Login = lazy(() => import('../pages/Login'));
 const Register = lazy(() => import('../pages/Register'));
+const Calculator = lazy(() => import('../pages/Calculator'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ export const App = () => {
           <Route path="/diary" element={<Diary />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/calculator" element={<Calculator />} />
         </Routes>
       </Suspense>
     )
