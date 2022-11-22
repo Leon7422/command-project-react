@@ -1,0 +1,34 @@
+.summaryContainer {
+  padding: 20px;
+  font-family: 'Verdana';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+
+  color: #9b9faa;
+  background-color: #eff1f3;
+}
+
+.header {
+  margin-bottom: 20px;
+
+  font-family: 'Verdana';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+
+  color: #212121;
+}
+
+.listInfo {
+  margin-bottom: 20px;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+}
