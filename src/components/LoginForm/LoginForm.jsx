@@ -4,17 +4,18 @@ import styles from './LoginForm.module.scss';
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import Button from 'components/Button/Button';
 
 const schema = yup.object().shape({
   email: yup
     .string()
-    .min(6, 'Пошта має бути не менше 6 символів')
-    .required("Обов'язкове поле")
-    .email('Введено некоректно адресу ел.пошти'),
+    .min(6, '* Mail must be at least 6 characters')
+    .required('* Required input field')
+    .email('Invalid email address entered...'),
   password: yup
     .string()
-    .min(5, 'Пароль має бути не менше 5 символів')
-    .required("Обов'язкове поле"),
+    .min(5, '* Your password must be at least 5 characters long')
+    .required('* Required input field'),
 });
 
 const initialValues = {
@@ -37,7 +38,7 @@ function LoginForm() {
     <div className={styles.box}>
       <div className={styles.container}>
         <div className={styles.title__container}>
-          <h3 className={styles.title}>Вхід</h3>
+          <h3 className={styles.title}>Sign in</h3>
         </div>
 
         <Formik
@@ -47,7 +48,7 @@ function LoginForm() {
         >
           <Form className={styles.form} autoComplete="off">
             <label className={styles.label}>
-              Пошта *
+              Email *
               <Field
                 className={styles.input}
                 type="email"
@@ -63,7 +64,7 @@ function LoginForm() {
             </label>
 
             <label className={styles.label}>
-              Пароль *
+              Password *
               <Field
                 className={styles.input}
                 type="password"
@@ -79,15 +80,11 @@ function LoginForm() {
             </label>
             <ul className={styles.list}>
               <li className={styles.item}>
-                <button type="submit" className={styles.button}>
-                  Вхід
-                </button>
+                <Button type={'submit'} text={'Login'} />
               </li>
               <li className={styles.item}>
                 <a href="./register">
-                  <button type="button" className={styles.button__second}>
-                    Реєстрація
-                  </button>
+                  <Button type={'submit'} text={'Register'} />
                 </a>
               </li>
             </ul>

@@ -61,7 +61,14 @@
   border: none;
   border-bottom: 1px solid #e0e0e0;
   width: 280px;
-  color: #fc842d;
+  font-family: 'Verdana', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+
+  color: #000000;
   outline: transparent;
   @media screen and (min-width: 768px) {
     width: 240px;
@@ -89,38 +96,7 @@
 }
 
 .error__message {
+  width: 100%;
   font-weight: normal;
-  color: #fc842d;
-}
-
-.button {
-  width: fit-content;
-  min-width: 182px;
-  margin: 0 auto;
-  padding: 15px 25px;
-  border: none;
-  color: white;
-  border: 1px solid #fc842d;
-  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-  border-radius: 30px;
-  text-align: center;
-  cursor: pointer;
-  background: #fc842d;
-  opacity: 1;
-
-  &:hover {
-    color: #fc842d;
-    background: white;
-  }
-}
-
-.button__second {
-  @extend .button;
-  color: #fc842d;
-  background: white;
-  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-  &:hover {
-    color: white;
-    background: #fc842d;
-  }
+  color: #ff6a00;
 }
