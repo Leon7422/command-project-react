@@ -22,11 +22,11 @@ const initialValues = {
   password: '',
 };
 
-export default function LoginView() {
+function LoginForm() {
   const [, setEmail] = useState('');
   const [, setPassword] = useState('');
 
-  const handleSubmit = ({ email, password }, { resetForm }) => {
+  const handleSubmit = ({ email, password, resetForm }) => {
     setEmail(email);
     setPassword(password);
 
@@ -97,3 +97,5 @@ export default function LoginView() {
     </div>
   );
 }
+
+export default LoginForm;
