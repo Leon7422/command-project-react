@@ -6,7 +6,7 @@ import Button from 'components/Button/Button';
 import styles from './Modal.module.scss';
 
 const Modal = () => {
-  let [modal, setModal] = useState(true);
+  let [modal, setModal] = useState(false);
 
   const closeModal = () => {
     setModal(false);
@@ -46,9 +46,9 @@ const Modal = () => {
             >
               <CloseSvg className={styles.img} />
             </button>
-            <h3 className={styles.title}>
+            <h2 className={styles.title}>
               Your recommended daily calorie intake is
-            </h3>
+            </h2>
             <p className={styles.number}>
               <span className={styles.text}>kcal</span>
             </p>
