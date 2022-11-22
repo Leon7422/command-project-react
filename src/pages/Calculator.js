@@ -1,3 +1,11 @@
+import DiaryAddProductForm from "components/DiaryAddProductForm/DiaryAddProductForm";
+import DiaryProductList from "components/DiaryProductList/DiaryProductList";
+
 export default function Calculator() {
-  return <div>Calculator</div>;
+  return (
+    <section>
+      <DiaryAddProductForm />
+    <DiaryProductList/>
+    </section>
+  );
 }

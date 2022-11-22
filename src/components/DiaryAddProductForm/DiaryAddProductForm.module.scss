@@ -1,0 +1,57 @@
+.form {
+  margin-top: 140px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 60px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-right: 48px;
+}
+
+.field:nth-child(2) {
+  margin-right: 60px;
+}
+
+.label {
+  color: #9B9FAA;
+  font-weight: 700;
+}
+
+.label.gram {
+  text-align: right;
+}
+
+.input {
+  padding: 0;
+  width: 240px;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid #fc842d;
+  }
+}
+
+.input.gram {
+  width: 107px;
+}
+
+.button {
+  border: none;
+  border-radius: 50%;
+  background-image: url(../../images/addBtn.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 48px;
+  width: 48px;
+  background-color: #fc842d;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  cursor: pointer;
+}
