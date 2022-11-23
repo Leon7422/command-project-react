@@ -8,28 +8,61 @@
   gap: 8px;
   margin-left: 8px;
   margin-right: 17px;
+
+  @media screen and (min-width: 768px) {
+      gap: 46px;
+      margin-left: 22px;
+      margin-right: 32px;
+    }
+
+        @media screen and (min-width: 1280px) {
+          gap: 32px;
+          margin-left: 48px;
+        }
 }
 
 .title {
   width: 130px;
   border-bottom: 1px solid #E0E0E0;
   padding-bottom: 8px;
+
+  @media screen and (min-width: 768px) {
+      width: 240px;
+      padding-bottom: 20px;
+    }
+
 }
 
 .weight {
   width: 49px;
   border-bottom: 1px solid #E0E0E0;
   padding-bottom: 8px;
+
+  @media screen and (min-width: 768px) {
+      width: 106px;
+      padding-bottom: 20px;
+      text-align: right;
+    }
 }
 
 .kcal {
   width: 58px;
   border-bottom: 1px solid #E0E0E0;
   padding-bottom: 8px;
+
+  @media screen and (min-width: 768px) {
+      width: 106px;
+      padding-bottom: 20px;
+      text-align: right;
+    }
 }
 
 .kcalText {
   font-size: 10px;
+
+  @media screen and (min-width: 768px) {
+      font-size: 14px;
+    }
 }
 
 .deleteButton {
@@ -41,6 +74,11 @@
   background-position: center;
   background-repeat: no-repeat;
   cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+      width: 12px;
+      height: 12px;
+    }
 }
 
 
