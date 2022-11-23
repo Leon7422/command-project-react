@@ -1,0 +1,22 @@
+.calendar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.date {
+  font-family: Verdana;
+  font-size: 18px;
+}
+
+.calendarBtn {
+background-image: url(../../../images/calendar.svg);
+width: 20px;
+height: 20px;
+background-repeat: no-repeat;
+background-position: center;
+background-color: transparent;
+border: none;
+cursor: pointer;
+}

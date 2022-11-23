@@ -1,0 +1,46 @@
+.productsItem {
+  display: flex;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  gap: 8px;
+  margin-left: 8px;
+  margin-right: 17px;
+}
+
+.title {
+  width: 130px;
+  border-bottom: 1px solid #E0E0E0;
+  padding-bottom: 8px;
+}
+
+.weight {
+  width: 49px;
+  border-bottom: 1px solid #E0E0E0;
+  padding-bottom: 8px;
+}
+
+.kcal {
+  width: 58px;
+  border-bottom: 1px solid #E0E0E0;
+  padding-bottom: 8px;
+}
+
+.kcalText {
+  font-size: 10px;
+}
+
+.deleteButton {
+  background-image: url(../../../images/deleteBtn.svg);
+  border:none;
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+
