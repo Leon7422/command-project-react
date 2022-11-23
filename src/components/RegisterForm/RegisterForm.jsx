@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import operations from '../../redux/operations';
 
 import * as yup from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -33,12 +35,17 @@ function RegisterForm() {
   const [, setName] = useState('');
   const [, setEmail] = useState('');
   const [, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   const handleSubmit = ({ name, email, password }, { resetForm }) => {
     setName(name);
     setEmail(email);
     setPassword(password);
 
+    dispatch(operations.register({ userName: name, email, password }));
+    console.log('====================================');
+    console.log({ userName: name, email, password });
+    console.log('====================================');
     resetForm({ name: '', email: '', password: '' });
   };
 
