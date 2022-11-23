@@ -3,10 +3,15 @@ import { useState } from 'react';
 import * as yup from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-import styles from './LoginForm.module.scss';
+import styles from './RegisterForm.module.scss';
 import Button from 'components/Button/Button';
 
 const schema = yup.object().shape({
+  name: yup
+    .string()
+    .min(2, '* The name must be at least 2 characters')
+
+    .required('* Required input field'),
   email: yup
     .string()
     .min(6, '* Mail must be at least 6 characters')
@@ -19,26 +24,29 @@ const schema = yup.object().shape({
 });
 
 const initialValues = {
+  name: '',
   email: '',
   password: '',
 };
 
-function LoginForm() {
+function RegisterForm() {
+  const [, setName] = useState('');
   const [, setEmail] = useState('');
   const [, setPassword] = useState('');
 
-  const handleSubmit = ({ email, password, resetForm }) => {
+  const handleSubmit = ({ name, email, password }, { resetForm }) => {
+    setName(name);
     setEmail(email);
     setPassword(password);
 
-    resetForm({ email: '', password: '' });
+    resetForm({ name: '', email: '', password: '' });
   };
 
   return (
     <div className={styles.box}>
       <div className={styles.container}>
         <div className={styles.title__container}>
-          <h3 className={styles.title}>Sign in</h3>
+          <h1 className={styles.title}>Register</h1>
         </div>
 
         <Formik
@@ -47,6 +55,22 @@ function LoginForm() {
           validationSchema={schema}
         >
           <Form className={styles.form} autoComplete="off">
+            <label className={styles.label}>
+              Name *
+              <Field
+                className={styles.input}
+                type="text"
+                name="name"
+                autoComplete="off"
+                required
+              />
+              <ErrorMessage
+                name="name"
+                component="div"
+                className={styles.error__message}
+              />
+            </label>
+
             <label className={styles.label}>
               Email *
               <Field
@@ -58,7 +82,7 @@ function LoginForm() {
               />
               <ErrorMessage
                 name="email"
-                component="p"
+                component="div"
                 className={styles.error__message}
               />
             </label>
@@ -74,18 +98,19 @@ function LoginForm() {
               />
               <ErrorMessage
                 name="password"
-                component="p"
+                component="div"
                 className={styles.error__message}
               />
             </label>
+
             <ul className={styles.list}>
               <li className={styles.item}>
-                <Button type={'submit'} text={'Login'} />
+                <a href="./login">
+                  <Button type={'button'} text={'Login'} />
+                </a>
               </li>
               <li className={styles.item}>
-                <a href="./register">
-                  <Button type={'button'} text={'Register'} />
-                </a>
+                <Button type={'submit'} text={'Register'} />
               </li>
             </ul>
           </Form>
@@ -95,4 +120,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default RegisterForm;
