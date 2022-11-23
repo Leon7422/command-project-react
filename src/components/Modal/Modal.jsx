@@ -1,15 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
-import { ReactComponent as CloseSvg } from '../../images/close.svg';
 import Button from 'components/Button/Button';
 
 import styles from './Modal.module.scss';
 
-const Modal = () => {
-  let [modal, setModal] = useState(false);
-
+const Modal = ({toggleModal, isOpen}) => {
   const closeModal = () => {
-    setModal(false);
+    toggleModal();
   };
 
   const onBackdropClick = ev => {
@@ -34,21 +31,28 @@ const Modal = () => {
     };
   });
 
+  let flag = [styles.overlay, styles.isHidden];
+
+  if (isOpen) {
+    flag.splice(1, 1);
+  } 
+
   return (
     <>
-      {modal && (
-        <div className={styles.overlay} onClick={onBackdropClick}>
+        <div className={flag.join(" ")} onClick={onBackdropClick}>
           <div className={styles.modal}>
+            <div className={styles.btnThumb}>
             <button
               type="button"
               className={styles.btnClose}
               onClick={closeModal}
             >
-              <CloseSvg className={styles.img} />
             </button>
+            </div>
             <h2 className={styles.title}>
               Your recommended daily calorie intake is
             </h2>
+            <div className={styles.thumb}>
             <p className={styles.number}>
               <span className={styles.text}>kcal</span>
             </p>
@@ -56,12 +60,12 @@ const Modal = () => {
             <ol className={styles.list}>
               <li className={styles.item}></li>
             </ol>
+            </div>
             <div className={styles.btn}>
               <Button type="button" text="Start losing weight" />
             </div>
           </div>
         </div>
-      )}
     </>
   );
 };
