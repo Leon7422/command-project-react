@@ -1,0 +1,102 @@
+.box {
+  @media screen and (max-width: 768px) {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+  }
+}
+
+.container {
+  margin-top: 160px;
+  margin-left: 16px;
+  position: relative;
+}
+
+.title__container {
+  @media screen and (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.title {
+  margin-bottom: 60px;
+  color: #fc842d;
+  text-transform: uppercase;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 13px;
+  letter-spacing: 0.04em;
+
+  font-family: 'Gotham Pro';
+}
+
+.form {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  color: #9b9faa;
+  font-family: 'Verdana', sans-serif;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+}
+
+.label + .label {
+  margin-top: 40px;
+}
+
+.input {
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  width: 280px;
+  font-family: 'Verdana', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+
+  color: #000000;
+  outline: transparent;
+  @media screen and (min-width: 768px) {
+    width: 240px;
+  }
+}
+
+.list {
+  display: flex;
+  margin-top: 60px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.item + .item {
+  margin-top: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 32px;
+    margin-top: 0;
+  }
+}
+
+.error__message {
+  width: 100%;
+  font-weight: normal;
+  color: #ff6a00;
+}
