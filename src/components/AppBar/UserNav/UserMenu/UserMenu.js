@@ -1,7 +1,7 @@
 import css from './UserMenu.module.scss';
 import operations from 'redux/operations';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 export function UserMenu() {
   const dispatch = useDispatch();
