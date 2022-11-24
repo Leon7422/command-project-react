@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import operations from 'redux/operations';
 import selectors from 'redux/selectors';
 
-const Home = lazy(() => import('../pages/Home'));
-const Diary = lazy(() => import('../pages/Diary'));
+const Home = lazy(() => import('../pages/Home/Home'));
+const Diary = lazy(() => import('../pages/Diary/Diary'));
 const Login = lazy(() => import('../pages/Login'));
 const Register = lazy(() => import('../pages/Register'));
 const Calculator = lazy(() => import('../pages/Calculator'));
