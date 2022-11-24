@@ -43,9 +43,7 @@ function RegisterForm() {
     setPassword(password);
 
     dispatch(operations.register({ userName: name, email, password }));
-    console.log('====================================');
-    console.log({ userName: name, email, password });
-    console.log('====================================');
+
     resetForm({ name: '', email: '', password: '' });
   };
 
