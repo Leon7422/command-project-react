@@ -4,6 +4,7 @@ import { UserNav } from './UserNav/UserNav';
 import css from './AppBar.module.scss';
 
 export function AppBar() {
+  let isLog = false;
   return (
     <header className={css.header}>
       <section className={`${css['header__container']}`}>
@@ -16,7 +17,7 @@ export function AppBar() {
             ></Link>
           </div>
           <nav className={css.nav}>
-            <AuthNav /> <UserNav />
+            {!isLog ? <AuthNav /> : <UserNav />}
           </nav>
         </div>
       </section>

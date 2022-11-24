@@ -1,0 +1,108 @@
+.diary__section {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-top: 32px;
+  font-family: 'Verdana';
+  font-weight: 700;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 32px;
+    margin-right: 0;
+    padding-top: 100px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-left: 16px;
+    padding-top: 150px;
+  }
+}
+
+.diary__title {
+  margin-bottom: 32px;
+  font-size: 18px;
+  line-height: 1.44;
+  color: #212121;
+
+  @media screen and (min-width: 768px) {
+    width: 608px;
+    font-size: 34px;
+    line-height: calc(41 / 34);
+    margin-bottom: 68px;
+  }
+}
+
+.diary__form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @media screen and (min-width: 768px) {
+    flex-wrap: wrap;
+    gap: 60px 30px;
+    height: 180px;
+    width: 510px;
+    margin-bottom: 80px;
+  }
+}
+
+.diary__label {
+  position: relative;
+  display: flex;
+  width: 240px;
+  max-height: 18px;
+  font-size: 14px;
+  line-height: calc(17 / 14);
+  letter-spacing: 0.04em;
+  color: #9b9faa;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 240px;
+    border-bottom: 1px solid currentColor;
+  }
+}
+
+.diary__input {
+  display: block;
+  margin-left: 15px;
+  width: 75px;
+  border-width: 0;
+  outline-width: 0.5px;
+  outline-color: #9b9faa;
+  font-family: 'Verdana';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: calc(17 / 14);
+  letter-spacing: 0.04em;
+  color: #9b9faa;
+}
+
+.diary__checkField {
+  display: flex;
+  gap: 30px;
+}
+
+.diary__button {
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 210px;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-left: 339px;
+  }
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 40px;
+  }
+  @media screen and (max-width: 1279px) {
+    margin-bottom: 48px;
+  }
+}
