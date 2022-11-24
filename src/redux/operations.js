@@ -30,7 +30,9 @@ const login = createAsyncThunk('auth/login', async credentials => {
 const logOut = createAsyncThunk('auth/logout', async () => {
   try {
     const { data } = await axios.post('/auth/logout'); //
+
     token.unset();
+
     return data;
   } catch (error) {}
 });
@@ -39,6 +41,7 @@ const fetchCurrentUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
+
     const persistedRefreshToken = state.auth.refreshToken;
     const persistedSid = { sid: state.auth.sid };
 
@@ -48,8 +51,10 @@ const fetchCurrentUser = createAsyncThunk(
 
     try {
       token.set(persistedRefreshToken);
-      const { data } = await axios.get('/users/current', persistedSid); // {SID}
-      token.set(data.accessToken);
+      const { data } = await axios.post('/auth/refresh', persistedSid); // {SID}
+
+      token.set(data.newAccessToken);
+
       return data;
     } catch (error) {}
   }

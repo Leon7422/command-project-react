@@ -7,6 +7,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 import styles from './RegisterForm.module.scss';
 import Button from 'components/Button/Button';
+import { useNavigate } from 'react-router-dom';
 
 const schema = yup.object().shape({
   name: yup
@@ -36,13 +37,15 @@ function RegisterForm() {
   const [, setEmail] = useState('');
   const [, setPassword] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = ({ name, email, password }, { resetForm }) => {
     setName(name);
     setEmail(email);
     setPassword(password);
 
-    dispatch(operations.register({ userName: name, email, password }));
+    dispatch(operations.register({ username: name, email, password }));
+    navigate('/diary');
 
     resetForm({ name: '', email: '', password: '' });
   };

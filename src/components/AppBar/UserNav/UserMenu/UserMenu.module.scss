@@ -1,41 +1,40 @@
 .UserMenu {
-    display: flex;
-    align-items: center;
-  }
-  
-  .paragraph {
-    position: relative;
-    min-width: 122px;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: calc(14 / 13);
-    text-align: right;
-    letter-spacing: 0.04em;
-    margin-right: 40px;
-    color: #212121;
-  }
-  
-  .paragraph:first-child::after {
-    content: '';
-    position: absolute;
-    right: -20px;
-    top: -9px;
-    display: block;
-    width: 0;
-    height: 32px;
-    border: 1px solid #e0e0e0;
-  }
-  
-  .paragraph:last-child {
-    text-align: left;
-    width: 50px;
-    color: #9b9faa;
-    margin-right: 0;
-  }
-  
-  .paragraph:last-child:hover {
-    cursor: pointer;
-    color: #212121;
-  }
-  
+  display: flex;
+  align-items: center;
+}
+
+.paragraph {
+  position: relative;
+  min-width: 122px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: calc(14 / 13);
+  text-align: right;
+  letter-spacing: 0.04em;
+  margin-right: 40px;
+  color: #212121;
+}
+
+.paragraph:first-child::after {
+  content: '';
+  position: absolute;
+  right: -20px;
+  top: -9px;
+  display: block;
+  width: 0;
+  height: 32px;
+  border: 1px solid #e0e0e0;
+}
+
+.paragraph:last-child {
+  text-align: left;
+  width: 50px;
+  color: #9b9faa;
+  margin-right: 0;
+}
+
+.paragraph:last-child:hover {
+  cursor: pointer;
+  color: #212121;
+}
