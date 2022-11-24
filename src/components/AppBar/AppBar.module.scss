@@ -1,80 +1,85 @@
 .header {
-    position: fixed;
-    width: 1280px;
+  // position: fixed;
+  max-width: 1280px;
+}
+
+.header__container {
+  top: 0;
+  padding-top: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e0e0e0;
+
+  @media screen and (min-width: 1280px) {
+    border-width: 0;
+    padding-bottom: 0;
+    padding-top: 80px;
+  }
+}
+
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  gap: 40px;
+
+  @media screen and (min-width: 768px) {
+    gap: 350px;
   }
   
-  .header__container {
-    top: 0;
-    padding-top: 20px;
-    padding-bottom: 16px;
-    border-bottom: 2px solid #e0e0e0;
-  
-    @media screen and (min-width: 1280px) {
-      border-width: 0;
-      padding-bottom: 0;
-      padding-top: 80px;
-    }
-  }
-  
-  .header__wrapper {
-    display: flex;
-    align-items: center;
+  @media screen and (min-width: 1280px) {
     height: 66px;
-  
-    @media screen and (min-width: 1280px) {
-      align-items: flex-end;
-    }
+    align-items: flex-end;
+    gap: 0;
   }
-  
-  .logo {
-    margin-right: 40px;
+}
+
+.logo {
+  margin-right: 40px;
+}
+
+.logo__link {
+  display: block;
+  width: 160px;
+  height: 44px;
+  background-image: url(../../images/logo/logo-sm-160w.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: top;
+
+  @media screen and (min-width: 768px) {
+    width: 162px;
+    background-image: url(../../images/logo/logo-md-163w.svg);
   }
-  
-  .logo__link {
+
+  @media screen and (min-width: 1280px) {
+    width: 167px;
+    height: 66px;
+    background-image: url(../../images/logo/logo-lg-167w.svg);
+  }
+
+  &--registration {
     display: block;
-    width: 160px;
+    width: 46.7px;
     height: 44px;
-    background-image: url(../../images/logo/logo-sm-160w.svg);
+    background-image: url(../../images/logo/logo-sm-registration-47w.svg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: top;
-  
+
     @media screen and (min-width: 768px) {
       width: 162px;
       background-image: url(../../images/logo/logo-md-163w.svg);
     }
-  
+
     @media screen and (min-width: 1280px) {
       width: 167px;
       height: 66px;
       background-image: url(../../images/logo/logo-lg-167w.svg);
     }
-  
-    &--registration {
-      display: block;
-      width: 46.7px;
-      height: 44px;
-      background-image: url(../../images/logo/logo-sm-registration-47w.svg);
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      background-position: top;
-  
-      @media screen and (min-width: 768px) {
-        width: 162px;
-        background-image: url(../../images/logo/logo-md-163w.svg);
-      }
-  
-      @media screen and (min-width: 1280px) {
-        width: 167px;
-        height: 66px;
-        background-image: url(../../images/logo/logo-lg-167w.svg);
-      }
-    }
   }
-  
-  .nav {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-  
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}

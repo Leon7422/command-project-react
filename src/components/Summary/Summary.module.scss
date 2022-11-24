@@ -9,6 +9,39 @@
 
   color: #9b9faa;
   background-color: #eff1f3;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 80px;
+    padding-left: 32px;
+    padding-right: 32px;
+    min-height: 326px;
+    display: flex;
+    gap: 80px;
+    background-image: url(../../images/background/background-summary-tablet.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+  }
+
+  @media screen and (min-width: 1280px) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: -1;
+
+    padding-top: 292px;
+    padding-left: 106px;
+    padding-right: 123px;
+    width: 517px;
+    height: 100%;
+    flex-direction: column;
+    gap: 60px;
+    
+    background-image: url(../../images/background/background-summary-desktop.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right top;
+  }
 }
 
 .header {
@@ -22,13 +55,20 @@
   letter-spacing: 0.04em;
 
   color: #212121;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 30px;
+  }
 }
 
 .listInfo {
-  margin-bottom: 20px;
+  width: 280px;
+  @media screen and (min-width: 768px) {
+    width: 288px;
+  }
 }
 
 .listItem {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 15px;
 }
