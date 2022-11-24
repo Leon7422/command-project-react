@@ -1,0 +1,43 @@
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+
+  @media screen and (min-width: 768px) {
+     align-items: flex-start;
+     justify-content: flex-start;
+     gap: 16px;
+    }
+}
+
+.scroll {
+  overflow-y: scroll;
+  height: 200px;
+
+  @media screen and (min-width: 768px) {
+      width: 610px;
+      height: 244px;
+    }
+
+
+  @media screen and (min-width: 1280px) {
+      width: 617px;
+      height: 271px;
+    }
+
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background: #f0f1f3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #264061;
+}

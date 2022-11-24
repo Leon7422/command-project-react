@@ -1,0 +1,12 @@
+.rdp {
+  --rdp-accent-color: #fc842d;
+  --rdp-background-color: #ffc9e6bc;
+  --rdp-accent-color-dark: #e15f03;
+  --rdp-background-color-dark: #700202;
+  --rdp-outline: 2px solid var(--rdp-accent-color); /* Outline border for focused elements */
+  --rdp-outline-selected: 3px solid var(--rdp-accent-color); /* Outline border for focused _and_ selected elements */
+}
+
+.rdp-day_selected {
+  background-color: #fc842d;
+}
