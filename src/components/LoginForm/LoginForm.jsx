@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import * as yup from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 import styles from './LoginForm.module.scss';
 import Button from 'components/Button/Button';
+import operations from 'redux/operations';
 
 const schema = yup.object().shape({
   email: yup
@@ -26,10 +28,13 @@ const initialValues = {
 function LoginForm() {
   const [, setEmail] = useState('');
   const [, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   const handleSubmit = ({ email, password, resetForm }) => {
     setEmail(email);
     setPassword(password);
+
+    dispatch(operations.login({ userName: email, password }));
 
     resetForm({ email: '', password: '' });
   };
