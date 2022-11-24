@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import { AppBar } from 'components/AppBar/AppBar';
-// import Summary from 'components/Summary/Summary';
+import DailyCaloriesForm from 'components/DailyCaloriesForm/DailyCaloriesForm';
 import Modal from "components/Modal/Modal";
 
 import css from './Home.module.scss';
@@ -16,12 +16,11 @@ export default function Home() {
 
   return (
     <section className={`${css['home__section']}`}>
-      {/* <button type='button' onClick={toggleModal}>Open modal</button> */}
       <div className={`container ${css['home__container']}`}>
         <AppBar />
         <div className={css.content}>
+          <DailyCaloriesForm openModal={toggleModal}/>
           <Outlet />
-          {/* <Summary /> */}
         </div>
         <Modal toggleModal={toggleModal} isOpen={isModalOpened}/>
       </div>
