@@ -20,6 +20,10 @@ const schema = yup.object().shape({
     .required('* Required input field'),
 });
 
+// 1)Перевірити логин, що приходить (логін)
+// 2)феткорент Юзер выдповідь 201 (редаксе)
+// 3)кнопка навбар ехит, юзер хочет выйти.
+
 const initialValues = {
   email: '',
   password: '',
@@ -34,7 +38,7 @@ function LoginForm() {
     setEmail(email);
     setPassword(password);
 
-    dispatch(operations.login({ userName: email, password }));
+    dispatch(operations.login({ email, password }));
 
     resetForm({ email: '', password: '' });
   };

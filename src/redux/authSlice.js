@@ -36,8 +36,8 @@ const authSlice = createSlice({
     },
     [operations.fetchCurrentUser.fulfilled](state, action) {
       state.user = action.payload;
-      state.accessToken = action.payload.accessToken;
-      state.refreshToken = action.payload.refreshToken;
+      state.accessToken = action.payload.newAccessToken;
+      state.refreshToken = action.payload.newRefreshToken;
       state.sid = action.payload.sid;
       state.isLoggedIn = true;
       state.isLoading = false;
@@ -49,7 +49,7 @@ const authSlice = createSlice({
 });
 
 const persistConfigContacts = {
-  key: 'contact',
+  key: 'user',
   storage,
   whitelist: ['refreshToken', 'sid'],
 };

@@ -42,7 +42,7 @@ function RegisterForm() {
     setEmail(email);
     setPassword(password);
 
-    dispatch(operations.register({ userName: name, email, password }));
+    dispatch(operations.register({ username: name, email, password }));
 
     resetForm({ name: '', email: '', password: '' });
   };
