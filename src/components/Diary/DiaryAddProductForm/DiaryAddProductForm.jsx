@@ -3,8 +3,11 @@ import operations from 'redux/operations';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 
-const DiaryAddProductForm = () => {
+const DiaryAddProductForm = currentDate => {
+  const [productIdToAdd, setProductIdToAdd] = useState('');
+  const [gramToAdd, setGramToAdd] = useState('');
   const [searchInputValue, setSearchInputValue] = useState('');
+  const [showMealArea, setShowMealArea] = useState('');
   const [searhData, setSearhData] = useState(undefined);
   const dispatch = useDispatch();
 
@@ -12,15 +15,24 @@ const DiaryAddProductForm = () => {
     setSearchInputValue(e.target.value);
     const data = await dispatch(operations.productFinder(e.target.value));
     setSearhData(data.payload);
+    setShowMealArea(data.payload);
     console.log(data);
+    setProductIdToAdd('');
   };
 
   const choseMeal = e => {
     setSearchInputValue(e.target.value);
+    setShowMealArea('');
+    setProductIdToAdd(e.target.id);
+  };
+
+  const addProduct = e => {
+    e.preventDefault();
+    console.log(productIdToAdd);
   };
 
   return (
-    <form onSubmit={null} className={scss.form}>
+    <form onSubmit={addProduct} className={scss.form}>
       <div className={scss.box}>
         <input
           type="text"
@@ -29,7 +41,7 @@ const DiaryAddProductForm = () => {
           className={scss.input}
           value={searchInputValue}
         />
-        {searhData && (
+        {showMealArea && (
           <div className={`${scss.searchArea}`}>
             {searhData.map(item => (
               <button
@@ -38,9 +50,9 @@ const DiaryAddProductForm = () => {
                 type="button"
                 key={item._id}
                 id={item._id}
-                value={item.title.ua}
+                value={item.title.ru}
               >
-                {item.title.ua}
+                {item.title.ru}
               </button>
             ))}
           </div>
