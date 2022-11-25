@@ -24,19 +24,14 @@
   }
 
   @media screen and (min-width: 1280px) {
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: -1;
-
     padding-top: 292px;
     padding-left: 106px;
     padding-right: 123px;
+    padding-bottom: 166px;
     width: 517px;
-    height: 100%;
     flex-direction: column;
     gap: 60px;
-    
+
     background-image: url(../../images/background/background-summary-desktop.png);
     background-size: contain;
     background-repeat: no-repeat;
