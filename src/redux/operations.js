@@ -60,11 +60,19 @@ const fetchCurrentUser = createAsyncThunk(
   }
 );
 
+const dailyRate = createAsyncThunk('/daily-rate', async credentials => {
+  try {
+    const { data } = await axios.post('/daily-rate', credentials); 
+    return data;
+  } catch (error) {}
+});
+
 const operations = {
   register,
   login,
   logOut,
   fetchCurrentUser,
+  dailyRate,
 };
 
 export default operations;
