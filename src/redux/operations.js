@@ -60,11 +60,36 @@ const fetchCurrentUser = createAsyncThunk(
   }
 );
 
+const productFinder = createAsyncThunk(
+  'products/search',
+  async (querry, thunkAPI) => {
+    try {
+      if (querry.length < 2) {
+        return thunkAPI.rejectWithValue();
+      }
+      const { data } = await axios.get(`/product?search=${querry}`); //
+      return data;
+    } catch (error) {}
+  }
+);
+
+const productAddToList = createAsyncThunk(
+  'products/add',
+  async (productInfo, thunkAPI) => {
+    try {
+      const { data } = await axios.post('/day', productInfo);
+      return data;
+    } catch (error) {}
+  }
+);
+
 const operations = {
   register,
   login,
   logOut,
   fetchCurrentUser,
+  productFinder,
+  productAddToList,
 };
 
 export default operations;
