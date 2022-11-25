@@ -83,13 +83,23 @@ const productAddToList = createAsyncThunk(
   }
 );
 
+const dailyRate = createAsyncThunk('/daily-rate', async credentials => {
+  try {
+    const { data } = await axios.post('/daily-rate', credentials);
+    return data;
+  } catch (error) {}
+});
+
 const operations = {
   register,
   login,
   logOut,
   fetchCurrentUser,
+
   productFinder,
   productAddToList,
+
+  dailyRate,
 };
 
 export default operations;

@@ -11,6 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { persistedAuthReducer } from './authSlice';
+import { rateReducer } from './rateSlice';
 
 const testPersistConfig = {
   key: 'test',
@@ -23,6 +24,7 @@ export const store = configureStore({
       return null;
     }),
     auth: persistedAuthReducer,
+    rate: rateReducer,
   },
   middleware(getDefaultMiddleware) {
     return getDefaultMiddleware({
