@@ -1,16 +1,16 @@
 .regPage {
-    background-size: contain;
-    background-repeat: no-repeat;
-  
-    @media screen and (min-width: 768px) {
-      background-image: url(../../images/background/form-tablet.png);
-      background-position: right bottom;
-      min-height: 1024px;
-    }
-  
-    @media screen and (min-width: 1280px) {
-      background-image: url(../../images/background/background-desktop.png);
-      background-position: right top;
-      min-height: 850px;
-    }
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  @media screen and (min-width: 768px) {
+    background-image: url(../../images/background/form-tablet.png);
+    background-position: right bottom;
+    min-height: 1024px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: url(../../images/background/background-desktop.png);
+    background-position: right top;
+    min-height: 850px;
+  }
 }
