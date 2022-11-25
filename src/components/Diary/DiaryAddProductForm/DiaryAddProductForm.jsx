@@ -3,7 +3,7 @@ import operations from 'redux/operations';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 
-const DiaryAddProductForm = currentDate => {
+const DiaryAddProductForm = selectedDate => {
   const [productIdToAdd, setProductIdToAdd] = useState('');
   const [gramToAdd, setGramToAdd] = useState('');
   const [searchInputValue, setSearchInputValue] = useState('');
@@ -20,6 +20,10 @@ const DiaryAddProductForm = currentDate => {
     setProductIdToAdd('');
   };
 
+  const addGramValue = e => {
+    setGramToAdd(e.target.value);
+  };
+
   const choseMeal = e => {
     setSearchInputValue(e.target.value);
     setShowMealArea('');
@@ -29,6 +33,8 @@ const DiaryAddProductForm = currentDate => {
   const addProduct = e => {
     e.preventDefault();
     console.log(productIdToAdd);
+    console.log(gramToAdd);
+    console.log(selectedDate);
   };
 
   return (
@@ -58,6 +64,7 @@ const DiaryAddProductForm = currentDate => {
           </div>
         )}
         <input
+          onChange={addGramValue}
           type="text"
           placeholder="Grams"
           className={`${scss.input} ${scss.grams}`}
