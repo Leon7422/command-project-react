@@ -73,12 +73,23 @@ const productFinder = createAsyncThunk(
   }
 );
 
+const productAddToList = createAsyncThunk(
+  'products/add',
+  async (productInfo, thunkAPI) => {
+    try {
+      const { data } = await axios.post('/day', productInfo);
+      return data;
+    } catch (error) {}
+  }
+);
+
 const operations = {
   register,
   login,
   logOut,
   fetchCurrentUser,
   productFinder,
+  productAddToList,
 };
 
 export default operations;

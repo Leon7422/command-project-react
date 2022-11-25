@@ -2,13 +2,15 @@ import scss from '../DiaryAddProductForm/DiaryAddProductForm.module.scss';
 import operations from 'redux/operations';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { useDate } from 'components/dateContext/dateContext';
 
-const DiaryAddProductForm = selectedDate => {
+const DiaryAddProductForm = () => {
   const [productIdToAdd, setProductIdToAdd] = useState('');
   const [gramToAdd, setGramToAdd] = useState('');
   const [searchInputValue, setSearchInputValue] = useState('');
   const [showMealArea, setShowMealArea] = useState('');
   const [searhData, setSearhData] = useState(undefined);
+  const { dateForApi } = useDate();
   const dispatch = useDispatch();
 
   const findProduct = async e => {
@@ -34,7 +36,14 @@ const DiaryAddProductForm = selectedDate => {
     e.preventDefault();
     console.log(productIdToAdd);
     console.log(gramToAdd);
-    console.log(selectedDate);
+    console.log(dateForApi);
+    dispatch(
+      operations.productAddToList({
+        date: dateForApi,
+        productId: productIdToAdd,
+        weight: gramToAdd,
+      })
+    );
   };
 
   return (
