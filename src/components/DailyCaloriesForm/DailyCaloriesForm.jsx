@@ -1,19 +1,24 @@
-// import operations from 'redux/operations';
+import { useDispatch } from 'react-redux';
+
+import operations from 'redux/operations';
 import Button from 'components/Button/Button';
 import css from './DailyCaloriesForm.module.scss';
 
 const DailyCaloriesForm = ({ openModal }) => {
+  const dispatch = useDispatch();
 
   const handleSubmit = ev => {
     ev.preventDefault();
     const form = ev.currentTarget;
     const userInfo = {
-      height: form.height.value,
-      age: form.age.value,
-      currentWeight: form.currentWeight.value,
-      desiredWeight: form.desiredWeight.value,
-      bloodType: form.bloodType.value,
+      height: Number(form.height.value),
+      age: Number(form.age.value),
+      weight: Number(form.currentWeight.value),
+      desiredWeight: Number(form.desiredWeight.value),
+      bloodType: Number(form.bloodType.value),
     }
+
+    dispatch(operations.dailyRate(userInfo));
   }
 
   return (
