@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
 import { AuthNav } from './AuthNav/AuthNav';
 import { UserNav } from './UserNav/UserNav';
+// import selectors from 'redux/selectors';
 import css from './AppBar.module.scss';
 
 export function AppBar() {
-  let isLog = false;
+  // const isLoggedIn = useSelector(selectors.getIsLoggedIn);
+
   return (
     <header className={css.header}>
       <section className={`${css['header__container']}`}>
@@ -17,7 +20,9 @@ export function AppBar() {
             ></Link>
           </div>
           <nav className={css.nav}>
-            {!isLog ? <AuthNav /> : <UserNav />}
+            {/* {!isLoggedIn ? <AuthNav /> : <UserNav />} */}
+            <AuthNav />
+            <UserNav />
           </nav>
         </div>
       </section>

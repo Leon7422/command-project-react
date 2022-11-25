@@ -46,7 +46,6 @@ const DailyCaloriesForm = ({ openModal }) => {
         </label>
         <p className={`${css['diary__label']}`}>Blood type *</p>
         <div className={`${css['diary__checkField']}`}>
-          
           <label>
             <input
               type="radio"

@@ -1,10 +1,8 @@
 import { useState } from 'react';
 
-// import UserBar from 'components/UserBar/UserBar';
-import { AppBar } from 'components/AppBar/AppBar';
-import Summary from 'components/Summary/Summary';
 import DailyCaloriesForm from 'components/DailyCaloriesForm/DailyCaloriesForm';
 import Modal from 'components/Modal/Modal';
+import css from './Diary.module.scss';
 
 export default function Diary() {
   let [isModalOpened, setIsModalOpened] = useState(false);
@@ -14,12 +12,9 @@ export default function Diary() {
   };
 
   return (
-    <>
-      {/* <UserBar /> */}
-      <AppBar />
+    <div className={css.diary}>
       <DailyCaloriesForm openModal={toggleModal} />
-      <Summary />
       <Modal toggleModal={toggleModal} isOpen={isModalOpened} />
-    </>
+    </div>
   );
 }
