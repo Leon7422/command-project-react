@@ -6,7 +6,6 @@ import Default from 'components/Summary/Default/Default';
 import Summary from 'components/Summary/Summary';
 import { AppBar } from 'components/AppBar/AppBar';
 // import selectors from 'redux/selectors';
-import DailyCaloriesForm from 'components/DailyCaloriesForm/DailyCaloriesForm';
 import Modal from 'components/Modal/Modal';
 import css from './Home.module.scss';
 import Animation from 'components/Animation/Animation';
@@ -27,7 +26,6 @@ export default function Home() {
       <div className={`container ${css['home__container']}`}>
         <AppBar />
         <div className={css.content}>
-          <DailyCaloriesForm openModal={toggleModal} />
           <Outlet />
           {isLoggedIn ? <Summary /> : <Default />}
         </div>
