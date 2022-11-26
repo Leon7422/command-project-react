@@ -1,13 +1,19 @@
 .section {
-  width: 763px;
-  height: 850px;
-  padding-top: 293px;
-  z-index: 10;
-  padding-left: 16px;
+  padding-top: 160px;
+  padding-left: 20px;
+  padding-right: 20px;
 
   @media screen and (min-width: 768px) {
+    max-width: 763px;
+      height: 850px;
+      padding-top: 293px;
+      z-index: 10;
+      padding-right: 126px;
+      padding-left: 16px;
+  
   }
 
   @media screen and (min-width: 1280px) {
+      padding-right: 124px;
   }
 }
