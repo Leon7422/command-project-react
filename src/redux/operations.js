@@ -83,6 +83,7 @@ const productAddToList = createAsyncThunk(
   }
 );
 
+
 const fetchCurrentDateInfo = createAsyncThunk(
   'productsDate/info',
   async (currentDate, thunkAPI) => {
@@ -103,6 +104,14 @@ const deleteProduct = createAsyncThunk(
   }
 );
 
+const dailyRate = createAsyncThunk('/daily-rate', async credentials => {
+  try {
+    const { data } = await axios.post('/daily-rate', credentials);
+    return data;
+  } catch (error) {}
+});
+
+
 const operations = {
   register,
   login,
@@ -112,6 +121,7 @@ const operations = {
   productAddToList,
   fetchCurrentDateInfo,
   deleteProduct,
+  dailyRate,
 };
 
 export default operations;
