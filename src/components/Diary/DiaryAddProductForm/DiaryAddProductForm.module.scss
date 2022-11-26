@@ -106,13 +106,19 @@
 .searchArea {
   overflow: scroll;
   position: absolute;
+  display: flex;
+  flex-direction: column;
   top: 50px;
   left: 0;
   width: 450px;
   height: 400px;
-  background-color: rgba(187, 250, 250, 0.418);
+  background-color: #fc832d67;
+  gap: 3px;
 }
 
 .btnAdd {
+  background-color: #fa9f5e;
   display: block;
+  border: none;
+  width: 100%;
 }

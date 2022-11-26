@@ -1,19 +1,22 @@
 import { createContext, useContext, useState } from 'react';
 
-const DateContext = createContext();
+const Context = createContext();
 
-export const useDate = () => useContext(DateContext);
+export const useContextInfo = () => useContext(Context);
 
 export const DateProvider = ({ children }) => {
   const [selected, setSelected] = useState(new Date());
+  const [productList, setProductList] = useState([]);
 
   const dateForApi = `${selected.getFullYear()}-${
     selected.getMonth() + 1
   }-${selected.getDate()}`;
 
   return (
-    <DateContext.Provider value={{ selected, setSelected, dateForApi }}>
+    <Context.Provider
+      value={{ selected, setSelected, dateForApi, productList, setProductList }}
+    >
       {children}
-    </DateContext.Provider>
+    </Context.Provider>
   );
 };

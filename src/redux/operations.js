@@ -83,6 +83,27 @@ const productAddToList = createAsyncThunk(
   }
 );
 
+
+const fetchCurrentDateInfo = createAsyncThunk(
+  'productsDate/info',
+  async (currentDate, thunkAPI) => {
+    try {
+      const { data } = await axios.post('/day/info', currentDate);
+      return data;
+    } catch (error) {}
+  }
+);
+
+const deleteProduct = createAsyncThunk(
+  'product/delete',
+  async (productInfo, thunkAPI) => {
+    try {
+      const { data } = await axios.delete('/day', productInfo);
+      return data;
+    } catch (error) {}
+  }
+);
+
 const dailyRate = createAsyncThunk('/daily-rate', async credentials => {
   try {
     const { data } = await axios.post('/daily-rate', credentials);
@@ -90,15 +111,16 @@ const dailyRate = createAsyncThunk('/daily-rate', async credentials => {
   } catch (error) {}
 });
 
+
 const operations = {
   register,
   login,
   logOut,
   fetchCurrentUser,
-
   productFinder,
   productAddToList,
-
+  fetchCurrentDateInfo,
+  deleteProduct,
   dailyRate,
 };
 
