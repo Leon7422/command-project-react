@@ -4,10 +4,10 @@ import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import '../DiaryDateCalendar/Calendar.css';
 import scss from '../DiaryDateCalendar/DiaryDateCalendar.module.scss';
-import { useDate } from 'components/dateContext/dateContext';
+import { useContextInfo } from 'components/dateContext/dateContext';
 
 const DiaryDateCalendar = () => {
-  const { selected, setSelected } = useDate();
+  const { selected, setSelected } = useContextInfo();
   const [inputValue, setInputValue] = useState('');
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 

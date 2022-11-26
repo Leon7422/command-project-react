@@ -83,6 +83,26 @@ const productAddToList = createAsyncThunk(
   }
 );
 
+const fetchCurrentDateInfo = createAsyncThunk(
+  'productsDate/info',
+  async (currentDate, thunkAPI) => {
+    try {
+      const { data } = await axios.post('/day/info', currentDate);
+      return data;
+    } catch (error) {}
+  }
+);
+
+const deleteProduct = createAsyncThunk(
+  'product/delete',
+  async (productInfo, thunkAPI) => {
+    try {
+      const { data } = await axios.delete('/day', productInfo);
+      return data;
+    } catch (error) {}
+  }
+);
+
 const operations = {
   register,
   login,
@@ -90,6 +110,8 @@ const operations = {
   fetchCurrentUser,
   productFinder,
   productAddToList,
+  fetchCurrentDateInfo,
+  deleteProduct,
 };
 
 export default operations;
