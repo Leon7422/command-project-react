@@ -1,26 +1,34 @@
 import styles from './Summary.module.scss';
+import { useContextInfo } from 'components/dateContext/dateContext';
 
 const Summary = () => {
+  const { productListInfo } = useContextInfo();
+  const summary = productListInfo?.payload?.daySummary;
   return (
     <div className={styles.summaryContainer}>
       <div>
-        <h2 className={styles.header}>Summary for 22.11.2022</h2>
+        <h2 className={styles.header}>Summary for {summary?.date || 0}</h2>
         <ul className={styles.listInfo}>
           <li className={styles.listItem}>
             <span>Left</span>
-            <span>000 kcal</span>
+            <span>{summary?.kcalLeft || 0} kcal</span>
           </li>
           <li className={styles.listItem}>
             <span>Consumed</span>
-            <span>000 kcal</span>
+            <span>{summary?.kcalConsumed || 0} kcal</span>
           </li>
           <li className={styles.listItem}>
             <span>Daily rate</span>
-            <span>000 kcal</span>
+            <span>{summary?.dailyRate || 0} kcal</span>
           </li>
           <li className={styles.listItem}>
-            <span>n% of normal</span>
-            <span>000 kcal</span>
+            <span>% of normal</span>
+            <span>
+              {summary
+                ? Math.round((summary.kcalConsumed / summary.dailyRate) * 100)
+                : 0}{' '}
+              %
+            </span>
           </li>
         </ul>
       </div>

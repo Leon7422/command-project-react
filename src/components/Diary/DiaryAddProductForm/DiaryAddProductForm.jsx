@@ -10,7 +10,7 @@ const DiaryAddProductForm = () => {
   const [searchInputValue, setSearchInputValue] = useState('');
   const [showMealArea, setShowMealArea] = useState('');
   const [searhData, setSearhData] = useState(undefined);
-  const { dateForApi, setProductList } = useContextInfo();
+  const { dateForApi, setProductListInfo } = useContextInfo();
   const dispatch = useDispatch();
 
   const findProduct = async e => {
@@ -43,7 +43,7 @@ const DiaryAddProductForm = () => {
     );
     dispatch(operations.fetchCurrentDateInfo({ date: dateForApi })).then(
       res => {
-        setProductList(res);
+        setProductListInfo(res);
       }
     );
   };

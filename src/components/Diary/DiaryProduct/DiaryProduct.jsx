@@ -5,31 +5,32 @@ import operations from 'redux/operations';
 import { useDispatch } from 'react-redux';
 
 const DiaryProduct = () => {
-  const { dateForApi, productList, setProductList } = useContextInfo();
+  const { dateForApi, productListInfo, setProductListInfo } = useContextInfo();
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(operations.fetchCurrentDateInfo({ date: dateForApi })).then(
       res => {
-        setProductList(res);
+        setProductListInfo(res);
+        console.log(res);
       }
     );
-  }, [dateForApi, dispatch, setProductList]);
+  }, [dateForApi, dispatch, setProductListInfo]);
 
   const deleteProduct = e => {
     console.log({
-      dayId: productList.payload.id,
+      dayId: productListInfo.payload.id,
       eatenProductId: e.target.id,
     });
     dispatch(
       operations.deleteProduct({
-        dayId: productList.payload.id,
+        dayId: productListInfo.payload.id,
         eatenProductId: e.target.id,
       })
     );
   };
 
-  let eatenProducts = productList?.payload?.eatenProducts || [];
+  let eatenProducts = productListInfo?.payload?.eatenProducts || [];
   return eatenProducts.map(product => (
     <li key={product.id} className={`${scss.productsItem}`}>
       <p className={scss.title}>{product.title}</p>
