@@ -4,7 +4,9 @@ import Button from 'components/Button/Button';
 
 import styles from './Modal.module.scss';
 
-const Modal = ({toggleModal, isOpen}) => {
+const Modal = ({toggleModal, isOpen, rate, products}) => {
+  // console.log(rate);
+  // console.log(products);
   const closeModal = () => {
     toggleModal();
   };
@@ -54,6 +56,7 @@ const Modal = ({toggleModal, isOpen}) => {
             </h2>
             <div className={styles.thumb}>
             <p className={styles.number}>
+              {rate}
               <span className={styles.text}>kcal</span>
             </p>
             <p className={styles.subtitle}>Foods you should not eat</p>

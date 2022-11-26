@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import operations from 'redux/operations';
 import Button from 'components/Button/Button';
@@ -6,6 +6,9 @@ import css from './DailyCaloriesForm.module.scss';
 
 const DailyCaloriesForm = ({ openModal }) => {
   const dispatch = useDispatch();
+  // const response = useSelector(state => state.rate.user);
+  // let dailyRate = '';
+  // let notAllowed = [];
 
   const handleSubmit = ev => {
     ev.preventDefault();
@@ -19,6 +22,9 @@ const DailyCaloriesForm = ({ openModal }) => {
     }
 
     dispatch(operations.dailyRate(userInfo));
+
+    // dailyRate = response.dailyRate;
+    // notAllowed = response.notAllowedProducts;
   }
 
   return (

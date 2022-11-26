@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import operations from './operations';
 
 const initialState = {
-    userInfo: {}
+    user: {}
 }
 
 const rateSlice = createSlice({
@@ -10,7 +10,7 @@ const rateSlice = createSlice({
     initialState,
     extraReducers: {
         [operations.dailyRate.fulfilled](state, action) {
-            state.userInfo = action.payload;
+            state.user = action.payload;
         }
     }
 });
