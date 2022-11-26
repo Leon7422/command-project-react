@@ -83,7 +83,6 @@ const productAddToList = createAsyncThunk(
   }
 );
 
-
 const fetchCurrentDateInfo = createAsyncThunk(
   'productsDate/info',
   async (currentDate, thunkAPI) => {
@@ -110,7 +109,6 @@ const dailyRate = createAsyncThunk('/daily-rate', async credentials => {
     return data;
   } catch (error) {}
 });
-
 
 const operations = {
   register,

@@ -6,7 +6,7 @@ export const useContextInfo = () => useContext(Context);
 
 export const DateProvider = ({ children }) => {
   const [selected, setSelected] = useState(new Date());
-  const [productList, setProductList] = useState([]);
+  const [productListInfo, setProductListInfo] = useState([]);
 
   const dateForApi = `${selected.getFullYear()}-${
     selected.getMonth() + 1
@@ -14,7 +14,13 @@ export const DateProvider = ({ children }) => {
 
   return (
     <Context.Provider
-      value={{ selected, setSelected, dateForApi, productList, setProductList }}
+      value={{
+        selected,
+        setSelected,
+        dateForApi,
+        productListInfo,
+        setProductListInfo,
+      }}
     >
       {children}
     </Context.Provider>
