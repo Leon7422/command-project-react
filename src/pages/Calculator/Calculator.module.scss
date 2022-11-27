@@ -1,13 +1,25 @@
 .section {
-  width: 763px;
-  height: 850px;
-  padding-top: 293px;
+  display: flex;
   z-index: 10;
-  padding-left: 16px;
+  flex-direction: column;
+
+  @media screen and (min-width: 1280px) {
+    flex-direction: row;
+  }
+}
+
+.calendar {
+  padding-top: 160px;
 
   @media screen and (min-width: 768px) {
+    padding-top: 180px;
+    padding-left: 32px;
+    padding-bottom: 42px;
   }
 
   @media screen and (min-width: 1280px) {
+    padding-top: 293px;
+    padding-right: 124px;
+    padding-left: 16px;
   }
 }

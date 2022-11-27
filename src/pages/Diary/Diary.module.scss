@@ -1,7 +1,9 @@
 .diary {
-  padding-top: 143px;
-  width: 763px;
-  padding-bottom: 111px;
+  display: flex;
   z-index: 10;
-  padding-left: 16px;
+  flex-direction: column;
+
+  @media screen and (min-width: 1280px) {
+    flex-direction: row;
+  }
 }

@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import operations from 'redux/operations';
 import selectors from 'redux/selectors';
+import { AppBar } from './AppBar/AppBar';
 
 const Home = lazy(() => import('../pages/Home/Home'));
 const Diary = lazy(() => import('../pages/Diary/Diary'));
@@ -21,14 +22,13 @@ export const App = () => {
   return (
     !isLoading && (
       <Suspense>
+        <AppBar />
         <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Diary />} />
-            <Route path="/diary" element={<Diary />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/calculator" element={<Calculator />} />
-          </Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/diary" element={<Diary />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/calculator" element={<Calculator />} />
         </Routes>
       </Suspense>
     )

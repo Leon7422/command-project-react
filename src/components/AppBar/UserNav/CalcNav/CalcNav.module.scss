@@ -1,35 +1,38 @@
 .CalcNav {
+  display: none;
+
+  @media screen and (min-width: 1280px) {
     display: flex;
   }
-  
-  .CalcNav-link {
-    position: relative;
-    display: block;
-    font-family: 'Gotham Pro', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: calc(14 / 13);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: #9b9faa;
-  
-    &:first-child {
-      margin-right: 16px;
-  
-      &::before {
-        content: '';
-        position: absolute;
-        left: -20px;
-        top: -9px;
-        display: block;
-        width: 0;
-        height: 32px;
-        border: 1px solid #e0e0e0;
-      }
-    }
-  
-    &.active {
-      color: #212121;
+}
+
+.CalcNav-link {
+  position: relative;
+  display: block;
+  font-family: 'Gotham Pro', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: calc(14 / 13);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #9b9faa;
+
+  &:first-child {
+    margin-right: 16px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: -9px;
+      display: block;
+      width: 0;
+      height: 32px;
+      border: 1px solid #e0e0e0;
     }
   }
-  
+
+  &.active {
+    color: #212121;
+  }
+}
