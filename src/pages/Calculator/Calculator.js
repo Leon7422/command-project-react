@@ -2,6 +2,7 @@ import DiaryAddProductForm from 'components/Diary/DiaryAddProductForm/DiaryAddPr
 import DiaryDateCalendar from 'components/Diary/DiaryDateCalendar/DiaryDateCalendar';
 import DiaryProductList from 'components/Diary/DiaryProductList/DiaryProductList';
 import Summary from 'components/Summary/Summary';
+import { UserNavMob } from 'components/UserNavMob/UserNavMob';
 
 import styles from './Calculator.module.scss';
 
@@ -9,6 +10,7 @@ export default function Calculator() {
   return (
     <div className={styles.section}>
       <div className={styles.calendar}>
+        <UserNavMob />
         <DiaryDateCalendar />
         <DiaryAddProductForm />
         <DiaryProductList />

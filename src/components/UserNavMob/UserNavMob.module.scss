@@ -1,0 +1,90 @@
+.user__navigation {
+  display: flex;
+  height: 40px;
+  margin-bottom: 32px;
+  justify-content: space-between;
+  background-color: #eff1f3;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.btnThumb {
+  @media screen and (max-width: 767px) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.btnClose {
+  padding: 5px;
+  margin-left: 20px;
+  border: 0;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+  background-color: transparent;
+  background-image: url(../../images/arrowBack.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &:active {
+    background-color: #fc842d;
+    opacity: 0.9;
+  }
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+}
+
+.paragraph {
+  position: relative;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: calc(14 / 13);
+  text-align: right;
+  letter-spacing: 0.04em;
+  margin-right: 40px;
+  min-width: 50px;
+  height: 15px;
+  color: #212121;
+}
+
+.paragraph::after {
+  content: '';
+  position: absolute;
+  right: -20px;
+  top: -9px;
+  display: block;
+  width: 0;
+  height: 32px;
+  border: 1px solid #e0e0e0;
+}
+
+.button {
+  position: relative;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: calc(14 / 13);
+  letter-spacing: 0.04em;
+  text-align: left;
+  width: 50px;
+  color: #9b9faa;
+  margin-right: 0;
+  background-color: transparent;
+  border-width: 0;
+}
+
+.button:hover {
+  cursor: pointer;
+  color: #212121;
+}

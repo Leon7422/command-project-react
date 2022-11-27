@@ -4,6 +4,7 @@
 }
 
 .paragraph {
+  display: none;
   position: relative;
   font-style: normal;
   font-weight: 700;
@@ -15,6 +16,7 @@
   color: #212121;
 
   @media screen and (min-width: 768px) {
+    display: block;
     min-width: 122px;
   }
 }
@@ -31,6 +33,7 @@
 }
 
 .button {
+  display: none;
   position: relative;
   font-style: normal;
   font-weight: 700;
@@ -44,9 +47,15 @@
   background-color: transparent;
   border-width: 0;
   margin-right: 50px;
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
 }
 
 .button:hover {
   cursor: pointer;
   color: #212121;
+}
+
+.bar {
 }
