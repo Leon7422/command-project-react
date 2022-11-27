@@ -1,5 +1,5 @@
-.wrapper {
-  background: #181828;
+body {
+  background-color: #181828;
 }
 
 .starsec {
@@ -183,4 +183,89 @@
   padding-bottom: 40px;
   max-width: 960px;
   margin: 0 auto;
+}
+
+.error {
+  overflow: hidden;
+  max-height: 100vh;
+}
+
+@media (max-width: 1280px) {
+  .lamp {
+    zoom: .5;
+  }
+
+  .error__content {
+    top: 55%;
+  }
+
+  .message__title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+
+  .message__title {
+    font-size: 34px;
+
+  }
+
+  .error__content {
+    top: 55%;
+  }
+}
+
+@media (max-width: 1280px) {
+  .lamp__wrap {
+    max-height: 100vh;
+    overflow: hidden;
+    max-width: 100vw;
+  }
+}
+
+@media (max-width: 480px) {
+  body,
+  html {
+  max-height: 100vh;
+}
+
+.error__content {
+  position: static;
+  margin: 0 auto;
+  transform: none;
+  padding-top: 500px;
+}
+
+.error {
+  padding-top: 0;
+  padding-bottom: 100px;
+  height: 100vh;
+}
+}
+
+@media (max-width: 1280px) {
+  .message__title {
+    font-size: 36px;
+    padding-bottom: 20px;
+  }
+
+  .lamp {
+    zoom: .8;
+  }
+
+  .error__content {
+    padding-top: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .message__title {
+    font-size: 30px;
+  }
+
+    .lamp {
+      zoom: .6;
+    }
 }

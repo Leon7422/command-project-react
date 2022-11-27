@@ -15,6 +15,7 @@ export default function Calculator() {
           <DiaryDateCalendar />
           <DiaryAddProductForm />
           <DiaryProductList />
+          <button type='button' onClick={() => {}} className={styles.buttonPlus}></button>
         </div>
         <Summary />
       </div>
