@@ -14,13 +14,15 @@ export default function Diary() {
   };
 
   return (
-    <div className={css.diary}>
-      <div className={css.wrapper}>
-        <UserNavMob />
+    <section className={css.diary}>
+      <div className={`${css['diary__container']}`}>
+        <div className={css.wrapper}>
+          <UserNavMob />
+        </div>
+        <DailyCaloriesForm openModal={toggleModal} />
+        <Summary />
+        <Modal toggleModal={toggleModal} isOpen={isModalOpened} />
       </div>
-      <DailyCaloriesForm openModal={toggleModal} />
-      <Summary />
-      <Modal toggleModal={toggleModal} isOpen={isModalOpened} />
-    </div>
+    </section>
   );
 }

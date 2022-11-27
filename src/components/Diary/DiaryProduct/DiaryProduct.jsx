@@ -12,16 +12,11 @@ const DiaryProduct = () => {
     dispatch(operations.fetchCurrentDateInfo({ date: dateForApi })).then(
       res => {
         setProductListInfo(res);
-        console.log(res);
       }
     );
   }, [dateForApi, dispatch, setProductListInfo]);
 
   const deleteProduct = e => {
-    console.log({
-      dayId: productListInfo.payload.id,
-      eatenProductId: e.target.id,
-    });
     dispatch(
       operations.deleteProduct({
         dayId: productListInfo.payload.id,

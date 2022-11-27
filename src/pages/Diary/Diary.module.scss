@@ -1,13 +1,21 @@
 .diary {
-  display: flex;
   z-index: 10;
-  flex-direction: column;
+  min-height: 100vh;
+}
+
+.diary__container {
+  width: 320px;
   padding-top: 80px;
+  flex-direction: column;
+  display: flex;
+  margin: auto;
 
   @media screen and (min-width: 768px) {
+    width: 768px;
     padding-top: 0;
   }
   @media screen and (min-width: 1280px) {
+    width: 1280px;
     flex-direction: row;
   }
 }

@@ -54,11 +54,18 @@ const fetchCurrentUser = createAsyncThunk(
       const { data } = await axios.post('/auth/refresh', persistedSid); // {SID}
 
       token.set(data.newAccessToken);
-
       return data;
     } catch (error) {}
   }
 );
+
+const userInfo = createAsyncThunk('auth/userInfo', async (_, thunkAPI) => {
+  try {
+    const { data } = await axios.get('/user');
+
+    return data;
+  } catch (error) {}
+});
 
 const productFinder = createAsyncThunk(
   'products/search',
@@ -120,6 +127,7 @@ const operations = {
   fetchCurrentDateInfo,
   deleteProduct,
   dailyRate,
+  userInfo,
 };
 
 export default operations;

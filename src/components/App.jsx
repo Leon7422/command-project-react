@@ -19,7 +19,11 @@ export const App = () => {
   const isLoading = useSelector(selectors.getIsLoading);
 
   useEffect(() => {
-    dispatch(operations.fetchCurrentUser());
+    async function reload() {
+      await dispatch(operations.fetchCurrentUser());
+      dispatch(operations.userInfo());
+    }
+    reload();
   }, [dispatch]);
 
   return (

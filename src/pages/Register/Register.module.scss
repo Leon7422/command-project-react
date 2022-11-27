@@ -2,23 +2,37 @@
   z-index: 10;
   background-size: contain;
   background-repeat: no-repeat;
-  padding-top: 120px;
-  padding-left: 20px;
-  padding-bottom: 99px;
+  min-height: 100vh;
 
   @media screen and (min-width: 768px) {
-    padding-top: 240px;
-    padding-left: 32px;
     background-image: url(../../images/background/background-form-tablet.png);
     background-position: right bottom;
-    padding-bottom: 376px;
   }
 
   @media screen and (min-width: 1280px) {
     background-image: url(../../images/background/background-desktop.png);
     background-position: right bottom;
+  }
+}
+
+.regPage__container {
+  margin: auto;
+  padding-top: 120px;
+  padding-left: 20px;
+  padding-bottom: 99px;
+  width: 320px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 240px;
+    padding-left: 32px;
+    padding-bottom: 376px;
+    width: 768px;
+  }
+
+  @media screen and (min-width: 1280px) {
     padding-top: 306px;
     padding-bottom: 136px;
     padding-left: 16px;
+    width: 1280px;
   }
 }

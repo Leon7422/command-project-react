@@ -36,7 +36,6 @@ const authSlice = createSlice({
       state.isLoading = true;
     },
     [operations.fetchCurrentUser.fulfilled](state, action) {
-      state.user = action.payload;
       state.accessToken = action.payload.newAccessToken;
       state.refreshToken = action.payload.newRefreshToken;
       state.sid = action.payload.sid;
@@ -45,6 +44,10 @@ const authSlice = createSlice({
     },
     [operations.fetchCurrentUser.rejected](state) {
       state.isLoading = false;
+    },
+    [operations.userInfo.fulfilled](state, action) {
+      state.user.name = action.payload.username;
+      state.user.email = action.payload.email;
     },
   },
 });
