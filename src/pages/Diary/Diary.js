@@ -21,7 +21,11 @@ export default function Diary() {
         </div>
         <DailyCaloriesForm openModal={toggleModal} />
         <Summary />
-        <Modal toggleModal={toggleModal} isOpen={isModalOpened} />
+        {isModalOpened ? (
+          <Modal toggleModal={toggleModal} isOpen={isModalOpened} />
+        ) : (
+          ''
+        )}
       </div>
     </section>
   );

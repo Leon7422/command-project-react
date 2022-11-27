@@ -38,7 +38,7 @@ const logOut = createAsyncThunk('auth/logout', async () => {
 });
 
 const fetchCurrentUser = createAsyncThunk(
-  'auth/refresh',
+  'auth/fetchCurrentUser',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
 
@@ -52,7 +52,6 @@ const fetchCurrentUser = createAsyncThunk(
     try {
       token.set(persistedRefreshToken);
       const { data } = await axios.post('/auth/refresh', persistedSid); // {SID}
-
       token.set(data.newAccessToken);
       return data;
     } catch (error) {}
@@ -60,11 +59,18 @@ const fetchCurrentUser = createAsyncThunk(
 );
 
 const userInfo = createAsyncThunk('auth/userInfo', async (_, thunkAPI) => {
+  const state = thunkAPI.getState();
+
+  const isLoggedIn = state.auth.isLoggedIn;
+  if (!isLoggedIn) {
+    return thunkAPI.rejectWithValue();
+  }
   try {
     const { data } = await axios.get('/user');
-
     return data;
-  } catch (error) {}
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
 });
 
 const productFinder = createAsyncThunk(
@@ -110,7 +116,7 @@ const deleteProduct = createAsyncThunk(
   }
 );
 
-const dailyRate = createAsyncThunk('/daily-rate', async credentials => {
+const dailyRate = createAsyncThunk('/dailyRate', async credentials => {
   try {
     const { data } = await axios.post('/daily-rate', credentials);
     return data;
