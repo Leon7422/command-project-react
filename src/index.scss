@@ -47,6 +47,9 @@ a {
 a.active {
   color: #212121;
 }
+.burgerLink a.active {
+  color: #ffffff;
+}
 
 #root {
   position: relative;
