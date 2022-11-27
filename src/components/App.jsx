@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import operations from 'redux/operations';
 import selectors from 'redux/selectors';
@@ -11,6 +11,7 @@ const Diary = lazy(() => import('../pages/Diary/Diary'));
 const Login = lazy(() => import('../pages/Login/Login'));
 const Register = lazy(() => import('../pages/Register/Register'));
 const Calculator = lazy(() => import('../pages/Calculator/Calculator'));
+const ErrorPage = lazy(() => import('../pages/ErrorPage/ErrorPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -43,7 +44,7 @@ export const App = () => {
               <Calculator />
             </PrivateRoute>} />
           </Route>
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="*" element={<ErrorPage/>} />
         </Routes>
       </Suspense>
     )
