@@ -17,7 +17,11 @@ export default function Home() {
         <div className={css.content}>
           <DailyCaloriesForm openModal={toggleModal} />
         </div>
-        <Modal toggleModal={toggleModal} isOpen={isModalOpened} />
+        {isModalOpened ? (
+          <Modal toggleModal={toggleModal} isOpen={isModalOpened} />
+        ) : (
+          ''
+        )}
         <Animation />
       </div>
     </section>

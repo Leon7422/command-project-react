@@ -36,9 +36,9 @@ const authSlice = createSlice({
       state.isLoading = true;
     },
     [operations.fetchCurrentUser.fulfilled](state, action) {
-      state.accessToken = action.payload.newAccessToken;
-      state.refreshToken = action.payload.newRefreshToken;
-      state.sid = action.payload.sid;
+      state.accessToken = action.payload?.newAccessToken;
+      state.refreshToken = action.payload?.newRefreshToken;
+      state.sid = action.payload?.sid;
       state.isLoggedIn = true;
       state.isLoading = false;
     },
@@ -46,9 +46,10 @@ const authSlice = createSlice({
       state.isLoading = false;
     },
     [operations.userInfo.fulfilled](state, action) {
-      state.user.name = action.payload.username;
-      state.user.email = action.payload.email;
+      state.user.name = action.payload?.username;
+      state.user.email = action.payload?.email;
     },
+    [operations.userInfo.rejected](state, action) {},
   },
 });
 
