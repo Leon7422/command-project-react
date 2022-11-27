@@ -1,5 +1,6 @@
-body {
+.wrapper {
   background-color: #181828;
+  height: 1000px;
 }
 
 .starsec {
@@ -69,15 +70,15 @@ body {
 
 @keyframes move {
   0% {
-    transform: rotate(40deg);
+    transform: rotate(30deg);
   }
 
   50% {
-    transform: rotate(-40deg);
+    transform: rotate(-30deg);
   }
 
   100% {
-    transform: rotate(40deg);
+    transform: rotate(30deg);
   }
 }
 
@@ -129,7 +130,7 @@ body {
 .light {
   width: 300px;
   height: 0px;
-  border-bottom: 900px solid rgb(44 255 255 / 24%);
+  border-bottom: 600px solid rgb(44 255 255 / 24%);
   border-left: 50px solid transparent;
   border-right: 50px solid transparent;
   position: absolute;
@@ -225,10 +226,6 @@ body {
 }
 
 @media (max-width: 480px) {
-  body,
-  html {
-  max-height: 100vh;
-}
 
 .error__content {
   position: static;
@@ -255,7 +252,7 @@ body {
   }
 
   .error__content {
-    padding-top: 180px;
+    padding-top: 300px;
   }
 }
 
