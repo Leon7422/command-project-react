@@ -1,0 +1,81 @@
+.title {
+    margin-bottom: 20px;
+    
+    font-family: 'Verdana';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.23;
+    color: #212121;
+
+    @media screen and (max-width: 767px) {
+        margin-left: auto;
+        margin-right: auto;
+        width: 280px;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 26px;
+        text-align: center;
+    }
+}
+
+.thumb {
+    margin-left: auto;
+    margin-right: auto;
+    width: 280px;
+    @media screen and (min-width: 768px) {
+        width: 330px;
+    }
+}
+
+.number {
+    padding-bottom: 32px;
+    margin: 0 auto;
+
+    font-family: 'Verdana';
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.2;
+    text-align: center;
+    letter-spacing: 0.04em;
+
+    color: #264061;
+
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.text {
+    margin-left: 8px;
+    font-size: 22px;
+    letter-spacing: 0.02em;
+}
+
+.subtitle {
+    margin-top: 12px;
+    margin-bottom: 20px;
+
+    font-family: 'Verdana';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+
+    color: #212121;
+}
+
+.list {
+    margin: 0 auto;
+    padding-left: 20px;
+
+    font-family: 'Verdana';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+
+    color: #9B9FAA;
+}
+
+.item {
+    margin-bottom: 15px;
+}
