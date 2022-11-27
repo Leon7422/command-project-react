@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 import css from './BurgerMenu.module.scss';
 
 export function BurgerMenu() {
-  const showSettings = event => {
-    event.preventDefault();
-    this.setState({ areMenusOpen: false });
-  };
   return (
     <div className={css.burger}>
       <Menu noOverlay width={768}>
