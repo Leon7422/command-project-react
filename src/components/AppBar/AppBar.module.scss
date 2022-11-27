@@ -1,7 +1,13 @@
 .header {
-  position: absolute;
+  position: fixed;
   z-index: 15;
   top: 0;
+  background-color: #ffffff;
+
+  @media screen and (min-width: 1280px) {
+    position: absolute;
+    background-color: transparent;
+  }
 }
 
 .header__container {
