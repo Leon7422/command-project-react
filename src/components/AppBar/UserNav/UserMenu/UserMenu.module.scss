@@ -4,8 +4,8 @@
 }
 
 .paragraph {
+  display: none;
   position: relative;
-  min-width: 122px;
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
@@ -14,9 +14,14 @@
   letter-spacing: 0.04em;
   margin-right: 40px;
   color: #212121;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    min-width: 122px;
+  }
 }
 
-.paragraph:first-child::after {
+.paragraph::after {
   content: '';
   position: absolute;
   right: -20px;
@@ -27,16 +32,30 @@
   border: 1px solid #e0e0e0;
 }
 
-.paragraph:last-child {
+.button {
+  display: none;
+  position: relative;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: calc(14 / 13);
+  letter-spacing: 0.04em;
   text-align: left;
   width: 50px;
   color: #9b9faa;
   margin-right: 0;
   background-color: transparent;
   border-width: 0;
+  margin-right: 50px;
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
 }
 
-.paragraph:last-child:hover {
+.button:hover {
   cursor: pointer;
   color: #212121;
+}
+
+.bar {
 }

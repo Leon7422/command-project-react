@@ -32,7 +32,7 @@ const Summary = () => {
           </li>
         </ul>
       </div>
-      <div>
+      <div className={styles.diet}>
         <h2 className={styles.header}>Food not recomended</h2>
         <p>
           All broths / decoctions, oily fish, caviar and meat, mushrooms,

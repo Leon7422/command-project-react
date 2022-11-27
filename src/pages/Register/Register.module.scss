@@ -1,6 +1,24 @@
 .regPage {
-  padding-top: 133px;
-  width: 763px;
-  height: 850px;
   z-index: 10;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-top: 120px;
+  padding-left: 20px;
+  padding-bottom: 99px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 240px;
+    padding-left: 32px;
+    background-image: url(../../images/background/background-form-tablet.png);
+    background-position: right bottom;
+    padding-bottom: 376px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: url(../../images/background/background-desktop.png);
+    background-position: right bottom;
+    padding-top: 306px;
+    padding-bottom: 136px;
+    padding-left: 16px;
+  }
 }

@@ -1,27 +1,13 @@
 .box {
   @media screen and (max-width: 768px) {
-    margin-left: auto;
-    margin-right: auto;
-    width: 300px;
   }
 }
 
 .container {
-  margin-top: 160px;
-  margin-left: 16px;
   position: relative;
-
-  @media screen and (min-width: 320px) {
-    z-index: 999;
-  }
 }
 
 .title__container {
-  @media screen and (max-width: 768px) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 }
 
 .title {
@@ -36,6 +22,11 @@
   letter-spacing: 0.04em;
 
   font-family: 'Gotham Pro';
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    text-align: start;
+  }
 }
 
 .form {
@@ -47,7 +38,7 @@
 .label {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  margin-bottom: 60px;
   color: #9b9faa;
   font-family: 'Verdana', sans-serif;
 
@@ -56,10 +47,6 @@
   font-size: 14px;
   line-height: 17px;
   letter-spacing: 0.04em;
-}
-
-.label + .label {
-  margin-top: 40px;
 }
 
 .input {
@@ -82,12 +69,12 @@
 
 .list {
   display: flex;
-  margin-top: 60px;
+  flex-direction: column;
+  align-items: center;
 
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: none;
   }
 }
 

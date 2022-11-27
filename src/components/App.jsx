@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import operations from 'redux/operations';
 import selectors from 'redux/selectors';
+import { AppBar } from './AppBar/AppBar';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
 
@@ -24,27 +25,55 @@ export const App = () => {
   return (
     !isLoading && (
       <Suspense>
+        <AppBar />
         <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Diary />} />
-            <Route path="/diary" element={<PrivateRoute redirectTo='/login'><Diary/></PrivateRoute>} />
-            <Route path="/login"
-              element={<PublicRoute
+          <Route
+            path="/"
+            element={
+              <PublicRoute
+                Component={<Home />}
+                restricted
+                redirectTo="/diary"
+              />
+            }
+          />
+          <Route
+            path="/diary"
+            element={
+              <PrivateRoute redirectTo="/login">
+                <Diary />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute
                 Component={<Login />}
                 restricted
-                redirectTo='/diary' />
-            } />
-            <Route path="/register"
-              element={<PublicRoute
-              Component={<Register />}
+                redirectTo="/diary"
+              />
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute
+                Component={<Register />}
                 restricted
-                redirectTo='/diary' />} />
-            <Route path="/calculator" element={<PrivateRoute
-              redirectTo='/login'>
-              <Calculator />
-            </PrivateRoute>} />
-          </Route>
-          <Route path="*" element={<ErrorPage/>} />
+                redirectTo="/diary"
+              />
+            }
+          />
+          <Route
+            path="/calculator"
+            element={
+              <PrivateRoute redirectTo="/login">
+                <Calculator />
+              </PrivateRoute>
+            }
+          />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Suspense>
     )

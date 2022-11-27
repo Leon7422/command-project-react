@@ -1,7 +1,9 @@
 import css from './UserMenu.module.scss';
 import operations from 'redux/operations';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import selectors from 'redux/selectors';
+import { BurgerMenu } from 'components/BurgerMenu/BurgerMenu';
 
 export function UserMenu() {
   const dispatch = useDispatch();
@@ -17,10 +19,11 @@ export function UserMenu() {
 
   return (
     <div className={css.UserMenu}>
-      <p className={css.paragraph}>NickName</p>
-      <button type="button" className={css.paragraph} onClick={userLogout}>
+      <p className={css.paragraph}>{useSelector(selectors.getUserName)}</p>
+      <button type="button" className={css.button} onClick={userLogout}>
         Exit
       </button>
+      <BurgerMenu />
     </div>
   );
 }

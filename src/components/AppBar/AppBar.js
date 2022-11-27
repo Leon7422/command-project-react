@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+
 import { AuthNav } from './AuthNav/AuthNav';
 import { UserNav } from './UserNav/UserNav';
-// import selectors from 'redux/selectors';
+import selectors from 'redux/selectors';
 import css from './AppBar.module.scss';
 
 export function AppBar() {
-  // const isLoggedIn = useSelector(selectors.getIsLoggedIn);
+  const isLoggedIn = useSelector(selectors.getIsLoggedIn);
 
   return (
     <header className={css.header}>
@@ -19,10 +20,8 @@ export function AppBar() {
               className={`${css['logo__link--registration']}`}
             ></Link>
           </div>
-          <nav className={css.nav}>
-            {/* {!isLoggedIn ? <AuthNav /> : <UserNav />} */}
-            <AuthNav />
-            <UserNav />
+          <nav className={css.nav} data-menu>
+            {isLoggedIn ? <UserNav /> : <AuthNav />}
           </nav>
         </div>
       </section>
