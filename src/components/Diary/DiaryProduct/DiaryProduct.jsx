@@ -16,12 +16,17 @@ const DiaryProduct = () => {
     );
   }, [dateForApi, dispatch, setProductListInfo]);
 
-  const deleteProduct = e => {
-    dispatch(
+  const deleteProduct = async e => {
+    await dispatch(
       operations.deleteProduct({
         dayId: productListInfo.payload.id,
         eatenProductId: e.target.id,
       })
+    );
+    dispatch(operations.fetchCurrentDateInfo({ date: dateForApi })).then(
+      res => {
+        setProductListInfo(res);
+      }
     );
   };
 
