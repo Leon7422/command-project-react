@@ -114,7 +114,11 @@ function RegisterForm() {
             <ul className={styles.list}>
               <li className={styles.item}>
                 <a href="./login">
-                  <Button type={'button'} text={'Login'} />
+                  <Button
+                    type={'button'}
+                    text={'Login'}
+                    className={'btn-second'}
+                  />
                 </a>
               </li>
               <li className={styles.item}>
