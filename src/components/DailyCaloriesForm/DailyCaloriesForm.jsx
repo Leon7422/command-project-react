@@ -3,9 +3,13 @@ import { useDispatch } from 'react-redux';
 import operations from 'redux/operations';
 import Button from 'components/Button/Button';
 import css from './DailyCaloriesForm.module.scss';
+import { useSelector } from 'react-redux';
+import selectors from 'redux/selectors';
 
 const DailyCaloriesForm = ({ openModal }) => {
   const dispatch = useDispatch();
+  const isLogIn = useSelector(selectors.getIsLoggedIn);
+  const userId = useSelector(selectors.getUserId);
 
   const handleSubmit = ev => {
     ev.preventDefault();
@@ -18,7 +22,11 @@ const DailyCaloriesForm = ({ openModal }) => {
       bloodType: Number(form.bloodType.value),
     };
 
-    dispatch(operations.dailyRate(userInfo));
+    dispatch(
+      isLogIn
+        ? operations.userDailyRate({ userInfo, userId })
+        : operations.dailyRate(userInfo)
+    );
   };
 
   return (

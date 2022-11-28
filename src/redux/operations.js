@@ -123,6 +123,19 @@ const dailyRate = createAsyncThunk('/dailyRate', async credentials => {
   } catch (error) {}
 });
 
+const userDailyRate = createAsyncThunk(
+  '/dailyRate',
+  async ({ userInfo, userId }, thunkAPI) => {
+    try {
+      console.log(22);
+      const { data } = await axios.post(`/daily-rate/${userId}`, userInfo);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 const operations = {
   register,
   login,
@@ -134,6 +147,7 @@ const operations = {
   deleteProduct,
   dailyRate,
   userInfo,
+  userDailyRate,
 };
 
 export default operations;

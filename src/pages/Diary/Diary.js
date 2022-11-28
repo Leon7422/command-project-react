@@ -9,7 +9,6 @@ import css from './Diary.module.scss';
 
 export default function Diary() {
   let [isModalOpened, setIsModalOpened] = useState(false);
-
   const toggleModal = () => {
     setIsModalOpened(!isModalOpened);
   };
@@ -24,7 +23,7 @@ export default function Diary() {
         <Summary />
         {isModalOpened ? (
           <Modal toggleModal={toggleModal} isOpen={isModalOpened}>
-            <DairyModal/>
+            <DairyModal />
           </Modal>
         ) : (
           ''
