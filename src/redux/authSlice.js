@@ -4,7 +4,7 @@ import { persistReducer } from 'redux-persist';
 import operations from './operations';
 
 const initialState = {
-  user: { name: null, email: null },
+  user: { name: null, email: null, id: '' },
   accessToken: null,
   refreshToken: null,
   sid: null,
@@ -20,13 +20,14 @@ const authSlice = createSlice({
     [operations.login.fulfilled](state, action) {
       state.user.name = action.payload.user.username;
       state.user.email = action.payload.user.email;
+      state.user.id = action.payload.user.id;
       state.accessToken = action.payload.accessToken;
       state.refreshToken = action.payload.refreshToken;
       state.sid = action.payload.sid;
       state.isLoggedIn = true;
     },
     [operations.logOut.fulfilled](state, action) {
-      state.user = { name: null, email: null };
+      state.user = { name: null, email: null, id: '' };
       state.accessToken = null;
       state.refreshToken = null;
       state.sid = null;
@@ -46,6 +47,7 @@ const authSlice = createSlice({
       state.isLoading = false;
     },
     [operations.userInfo.fulfilled](state, action) {
+      state.user.id = action.payload?.id;
       state.user.name = action.payload?.username;
       state.user.email = action.payload?.email;
     },
