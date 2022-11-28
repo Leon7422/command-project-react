@@ -127,7 +127,6 @@ const userDailyRate = createAsyncThunk(
   '/dailyRate',
   async ({ userInfo, userId }, thunkAPI) => {
     try {
-      console.log(22);
       const { data } = await axios.post(`/daily-rate/${userId}`, userInfo);
       return data;
     } catch (error) {
