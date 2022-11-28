@@ -6,6 +6,7 @@ import selectors from 'redux/selectors';
 import { AppBar } from './AppBar/AppBar';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
+import Loader from './Loader/Loader';
 
 const Home = lazy(() => import('../pages/Home/Home'));
 const Diary = lazy(() => import('../pages/Diary/Diary'));
@@ -19,12 +20,16 @@ export const App = () => {
   const isLoading = useSelector(selectors.getIsLoading);
 
   useEffect(() => {
-    dispatch(operations.fetchCurrentUser());
+    async function fetchData() {
+      await dispatch(operations.fetchCurrentUser());
+      dispatch(operations.userInfo());
+    }
+    fetchData();
   }, [dispatch]);
 
   return (
     !isLoading && (
-      <Suspense>
+      <Suspense fallback={<Loader />}>
         <AppBar />
         <Routes>
           <Route

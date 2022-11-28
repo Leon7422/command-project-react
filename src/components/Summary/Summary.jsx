@@ -1,5 +1,5 @@
 import styles from './Summary.module.scss';
-import { useContextInfo } from 'components/dateContext/dateContext';
+import { useContextInfo } from 'components/dataContext/dataContext';
 
 const Summary = () => {
   const { productListInfo } = useContextInfo();

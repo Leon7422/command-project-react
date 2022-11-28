@@ -38,7 +38,7 @@ const logOut = createAsyncThunk('auth/logout', async () => {
 });
 
 const fetchCurrentUser = createAsyncThunk(
-  'auth/refresh',
+  'auth/fetchCurrentUser',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
 
@@ -52,13 +52,26 @@ const fetchCurrentUser = createAsyncThunk(
     try {
       token.set(persistedRefreshToken);
       const { data } = await axios.post('/auth/refresh', persistedSid); // {SID}
-
       token.set(data.newAccessToken);
-
       return data;
     } catch (error) {}
   }
 );
+
+const userInfo = createAsyncThunk('auth/userInfo', async (_, thunkAPI) => {
+  const state = thunkAPI.getState();
+
+  const isLoggedIn = state.auth.isLoggedIn;
+  if (!isLoggedIn) {
+    return thunkAPI.rejectWithValue();
+  }
+  try {
+    const { data } = await axios.get('/user');
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
 
 const productFinder = createAsyncThunk(
   'products/search',
@@ -97,13 +110,13 @@ const deleteProduct = createAsyncThunk(
   'product/delete',
   async (productInfo, thunkAPI) => {
     try {
-      const { data } = await axios.delete('/day', productInfo);
+      const { data } = await axios.delete('/day', { data: productInfo });
       return data;
     } catch (error) {}
   }
 );
 
-const dailyRate = createAsyncThunk('/daily-rate', async credentials => {
+const dailyRate = createAsyncThunk('/dailyRate', async credentials => {
   try {
     const { data } = await axios.post('/daily-rate', credentials);
     return data;
@@ -120,6 +133,7 @@ const operations = {
   fetchCurrentDateInfo,
   deleteProduct,
   dailyRate,
+  userInfo,
 };
 
 export default operations;

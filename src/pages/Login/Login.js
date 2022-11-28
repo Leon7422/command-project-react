@@ -5,8 +5,10 @@ import Animation from 'components/Animation/Animation';
 export default function Login() {
   return (
     <div className={styles.logPage}>
-      <LoginForm />
-      <Animation />
+      <div className={`${styles['logPage__container']}`}>
+        <LoginForm />
+        <Animation />
+      </div>
     </div>
   );
 }

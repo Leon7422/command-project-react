@@ -4,7 +4,7 @@ import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import '../DiaryDateCalendar/Calendar.css';
 import scss from '../DiaryDateCalendar/DiaryDateCalendar.module.scss';
-import { useContextInfo } from 'components/dateContext/dateContext';
+import { useContextInfo } from 'components/dataContext/dataContext';
 
 const DiaryDateCalendar = () => {
   const { selected, setSelected } = useContextInfo();
