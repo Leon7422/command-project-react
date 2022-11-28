@@ -62,7 +62,7 @@ export default function Calculator() {
         <Summary />
         {isModalOpened ? (
           <Modal toggleModal={toggleModal} isOpen={isModalOpened}>
-            <DairyModal />
+            <DairyModal toggleModal={toggleModal}/>
           </Modal>
         ) : (
           ''

@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import Button from 'components/Button/Button';
 import styles from './Modal.module.scss';
 
 const Modal = ({ toggleModal, isOpen, children }) => {
@@ -40,9 +39,6 @@ const Modal = ({ toggleModal, isOpen, children }) => {
             ></button>
           </div>
           {children}
-          <div className={styles.btn}>
-            <Button type="button" text="Start losing weight" />
-          </div>
         </div>
       </div>
     </>
