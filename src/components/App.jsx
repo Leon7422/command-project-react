@@ -25,7 +25,7 @@ export const App = () => {
     async function fetchData() {
       await dispatch(operations.fetchCurrentUser());
       const userInfo = await dispatch(operations.userInfo());
-      const notAllowed = userInfo.payload.userData.notAllowedProducts;
+      const notAllowed = userInfo?.payload?.userData?.notAllowedProducts || [];
       setNotAllowedProducts(notAllowed);
     }
     fetchData();

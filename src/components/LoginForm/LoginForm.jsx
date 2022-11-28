@@ -8,6 +8,7 @@ import styles from './LoginForm.module.scss';
 import Button from 'components/Button/Button';
 import operations from 'redux/operations';
 import { useNavigate } from 'react-router-dom';
+import { useContextInfo } from 'components/dataContext/dataContext';
 
 const schema = yup.object().shape({
   email: yup
@@ -31,14 +32,17 @@ function LoginForm() {
   const [, setPassword] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { setNotAllowedProducts } = useContextInfo();
 
-  const handleSubmit = ({ email, password, resetForm }) => {
+  const handleSubmit = async ({ email, password, resetForm }) => {
     setEmail(email);
     setPassword(password);
 
-    dispatch(operations.login({ email, password }));
+    await dispatch(operations.login({ email, password }));
     navigate('/diary');
-
+    const userInfo = await dispatch(operations.userInfo());
+    const notAllowed = userInfo?.payload?.userData?.notAllowedProducts || [];
+    setNotAllowedProducts(notAllowed);
     resetForm({ email: '', password: '' });
   };
 
