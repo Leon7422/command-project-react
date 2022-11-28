@@ -19,7 +19,7 @@ export function UserNavMob() {
   return (
     <div className={`${css['user__navigation']}`}>
       <div className={css.btnThumb}>
-        <button type="button" className={css.btnClose}></button>
+        {/* <button type="button" className={css.btnClose}></button> */}
       </div>
       <div className={`${css.bar}`}>
         <p className={css.paragraph}>{useSelector(selectors.getUserName)}</p>
