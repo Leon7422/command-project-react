@@ -1,12 +1,24 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import selectors from 'redux/selectors';
 import operations from 'redux/operations';
 import css from './UserNavMob.module.scss';
+import { useEffect, useState } from 'react';
 
 export function UserNavMob() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+  const backLinkHref = location.pathname;
+  const [previousPage, setPreviousPage] = useState();
+
+  useEffect(() => {
+    if (backLinkHref === '/calculator') {
+      setPreviousPage('/diary');
+    } else if (backLinkHref === '/diary') {
+      setPreviousPage('/calculator');
+    }
+  }, [backLinkHref]);
 
   const userLogout = () => {
     dispatch(
@@ -19,7 +31,7 @@ export function UserNavMob() {
   return (
     <div className={`${css['user__navigation']}`}>
       <div className={css.btnThumb}>
-        {/* <button type="button" className={css.btnClose}></button> */}
+        <Link to={previousPage} className={css.btnClose} />
       </div>
       <div className={`${css.bar}`}>
         <p className={css.paragraph}>{useSelector(selectors.getUserName)}</p>
