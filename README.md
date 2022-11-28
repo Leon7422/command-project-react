@@ -1,2 +1,1 @@
-# command-project-react
-Team #3
+Command project react

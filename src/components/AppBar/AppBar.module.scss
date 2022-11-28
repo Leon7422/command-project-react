@@ -1,0 +1,124 @@
+.section {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 320px) {
+    width: 320px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
+}
+
+.header {
+  position: fixed;
+  z-index: 15;
+  top: 0;
+  background-color: #ffffff;
+
+  @media screen and (min-width: 1280px) {
+    position: absolute;
+    background-color: transparent;
+  }
+}
+
+.header__container {
+  border-bottom: 2px solid #e0e0e0;
+  top: 0;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 16px;
+  width: 320px;
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding-top: 20px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-bottom: 14px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    padding-bottom: 0;
+    padding-top: 80px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-width: 0;
+  }
+}
+
+.header__wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 44px;
+  justify-content: space-between;
+
+  @media screen and (min-width: 1280px) {
+    height: 66px;
+    align-items: flex-end;
+    gap: 0;
+    justify-content: flex-start;
+  }
+}
+
+.logo {
+  margin-right: 40px;
+}
+
+.logo__link {
+  display: block;
+  width: 160px;
+  height: 44px;
+  background-image: url(../../images/logo/logo-sm-160w.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: top;
+
+  @media screen and (min-width: 768px) {
+    width: 162px;
+    background-image: url(../../images/logo/logo-md-163w.svg);
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 167px;
+    height: 66px;
+    background-image: url(../../images/logo/logo-lg-167w.svg);
+  }
+
+  &--registration {
+    display: block;
+    width: 46.7px;
+    height: 44px;
+    background-image: url(../../images/logo/logo-sm-registration-47w.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: top;
+
+    @media screen and (min-width: 768px) {
+      width: 162px;
+      background-image: url(../../images/logo/logo-md-163w.svg);
+    }
+
+    @media screen and (min-width: 1280px) {
+      width: 167px;
+      height: 66px;
+      background-image: url(../../images/logo/logo-lg-167w.svg);
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 35px;
+}

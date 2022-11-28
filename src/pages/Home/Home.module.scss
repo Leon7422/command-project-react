@@ -1,0 +1,30 @@
+.home__section {
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  min-height: 100vh;
+
+  @media screen and (min-width: 768px) {
+    background-image: url(../../images/background/background-tablet.png);
+    background-position: right bottom;
+  }
+  @media screen and (min-width: 1280px) {
+    background-image: url(../../images/background/background-desktop.png);
+    background-position: right bottom;
+  }
+}
+
+.home__container {
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: auto;
+  width: 320px;
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
+}

@@ -1,0 +1,83 @@
+.summaryContainer {
+  padding: 20px;
+  font-family: 'Verdana';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #9b9faa;
+  background-color: #eff1f3;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 80px;
+    padding-left: 32px;
+    padding-right: 32px;
+    width: 768px;
+    display: flex;
+    gap: 80px;
+    background-image: url(../../images/background/background-summary-tablet.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-top: 292px;
+    padding-left: 106px;
+    padding-right: 123px;
+    padding-bottom: 166px;
+    width: 517px;
+    flex-direction: column;
+    gap: 60px;
+
+    background-image: url(../../images/background/background-summary-desktop.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    min-height: 100vh;
+  }
+}
+
+.header {
+  margin-bottom: 20px;
+
+  font-family: 'Verdana';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+
+  color: #212121;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 30px;
+  }
+}
+
+.listInfo {
+  width: 280px;
+
+  @media screen and (min-width: 768px) {
+    width: 410px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 288px;
+  }
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.diet {
+  min-height: 157px;
+}
+
+.notAllowList {
+  height: 150px;
+  overflow-y: scroll;
+}

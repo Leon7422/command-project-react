@@ -1,0 +1,24 @@
+.background {
+  // display: none;
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    height: 563px;
+    background-image: url('../../../images/background/background-tablet.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: bottom;
+    margin-top: -237px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 980px;
+    height: 850px;
+    background-image: url('../../../images/background/background-desktop.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: bottom right;
+    margin-left: -463px;
+    margin-top: 0;
+  }
+}

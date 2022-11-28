@@ -1,0 +1,75 @@
+.one {
+  @media screen and (min-width: 768px) {
+    position: absolute;
+
+    z-index: 50;
+    bottom: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    background: url('../../images/main/one.png') no-repeat;
+
+    offset-path: path('M0,0 C200,420 100,300 100,30');
+
+    animation: animation 25s infinite alternate ease-in-out;
+  }
+}
+
+.two {
+  @media screen and (min-width: 768px) {
+    position: absolute;
+
+    z-index: 50;
+    bottom: 80%;
+    left: 40%;
+    width: 50px;
+    height: 50px;
+    background: url('../../images/main/two.png') no-repeat;
+    offset-path: path('M0,0 C40,160 60,160 100,0');
+
+    animation: animation 25s infinite alternate ease-in-out;
+  }
+}
+
+.three {
+  @media screen and (min-width: 768px) {
+    position: absolute;
+
+    z-index: 50;
+    top: 10%;
+    right: 50%;
+    width: 50px;
+    height: 59px;
+    background: url('../../images/main/three.png') no-repeat;
+    offset-rotate: 250deg;
+    offset-path: path('M120,325 C320,520 410,200 600,20');
+
+    animation: animation 25s infinite alternate ease-in-out;
+  }
+}
+
+.four {
+  @media screen and (min-width: 768px) {
+    position: absolute;
+
+    z-index: 50;
+    bottom: 15%;
+    left: 30%;
+    width: 50px;
+    height: 50px;
+    background: url('../../images/main/four.png') no-repeat;
+
+    offset-path: path('M500,20 C20,10 200,100 800,10');
+
+    animation: animation 25s infinite alternate ease-in-out;
+  }
+}
+
+@keyframes animation {
+  0% {
+    offset-distance: 0;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
