@@ -1,26 +1,7 @@
-import { useDispatch } from 'react-redux';
-
-import operations from 'redux/operations';
 import Button from 'components/Button/Button';
 import css from './DailyCaloriesForm.module.scss';
 
-const DailyCaloriesForm = ({ openModal }) => {
-  const dispatch = useDispatch();
-
-  const handleSubmit = ev => {
-    ev.preventDefault();
-    const form = ev.currentTarget;
-    const userInfo = {
-      height: Number(form.height.value),
-      age: Number(form.age.value),
-      weight: Number(form.currentWeight.value),
-      desiredWeight: Number(form.desiredWeight.value),
-      bloodType: Number(form.bloodType.value),
-    };
-
-    dispatch(operations.dailyRate(userInfo));
-  };
-
+const DailyCaloriesForm = ({ handleSubmit }) => {
   return (
     <section className={`${css['diary__section']}`}>
       <h1 className={`${css['diary__title']}`}>
@@ -34,6 +15,7 @@ const DailyCaloriesForm = ({ openModal }) => {
               type="number"
               min="0"
               name="height"
+              required
               className={`${css['diary__input']}`}
             ></input>
           </label>
@@ -43,6 +25,7 @@ const DailyCaloriesForm = ({ openModal }) => {
               type="number"
               min="0"
               name="age"
+              required
               className={`${css['diary__input']}`}
             ></input>
           </label>
@@ -52,6 +35,7 @@ const DailyCaloriesForm = ({ openModal }) => {
               type="number"
               min="0"
               name="currentWeight"
+              required
               className={`${css['diary__input']}`}
             ></input>
           </label>
@@ -61,6 +45,7 @@ const DailyCaloriesForm = ({ openModal }) => {
               type="number"
               min="0"
               name="desiredWeight"
+              required
               className={`${css['diary__input']}`}
             ></input>
           </label>
@@ -71,6 +56,7 @@ const DailyCaloriesForm = ({ openModal }) => {
                 type="radio"
                 name="bloodType"
                 value="1"
+                required
                 className={`${css['diary__input--radio']}`}
               />{' '}
               1
@@ -80,6 +66,7 @@ const DailyCaloriesForm = ({ openModal }) => {
                 type="radio"
                 name="bloodType"
                 value="2"
+                required
                 className={`${css['diary__input--radio']}`}
               />{' '}
               2
@@ -89,6 +76,7 @@ const DailyCaloriesForm = ({ openModal }) => {
                 type="radio"
                 name="bloodType"
                 value="3"
+                required
                 className={`${css['diary__input--radio']}`}
               />{' '}
               3
@@ -98,6 +86,7 @@ const DailyCaloriesForm = ({ openModal }) => {
                 type="radio"
                 name="bloodType"
                 value="4"
+                required
                 className={`${css['diary__input--radio']}`}
               />{' '}
               4
@@ -105,11 +94,7 @@ const DailyCaloriesForm = ({ openModal }) => {
           </div>
         </div>
         <div className={`${css['diary__button']}`}>
-          <Button
-            text={'Start losing weight'}
-            type={'submit'}
-            openModal={openModal}
-          ></Button>
+          <Button text={'Start losing weight'} type={'submit'}></Button>
         </div>
       </form>
     </section>

@@ -116,12 +116,14 @@ const deleteProduct = createAsyncThunk(
   }
 );
 
-const dailyRate = createAsyncThunk('/dailyRate', async credentials => {
+const dailyRate = async credentials => {
   try {
     const { data } = await axios.post('/daily-rate', credentials);
     return data;
-  } catch (error) {}
-});
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 const operations = {
   register,

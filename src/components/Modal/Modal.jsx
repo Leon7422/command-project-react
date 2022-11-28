@@ -1,8 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { nanoid } from 'nanoid';
+import operations from 'redux/operations';
 import Button from 'components/Button/Button';
 import styles from './Modal.module.scss';
 
-const Modal = ({ toggleModal, isOpen }) => {
+const Modal = ({ toggleModal, isOpen, fetchInfo }) => {
+  const [foodArray, setFoodArray] = useState([]);
+  const [calories, setCalories] = useState('');
+
   const onBackdropClick = ev => {
     if (ev.currentTarget === ev.target) {
       toggleModal();
@@ -21,6 +26,13 @@ const Modal = ({ toggleModal, isOpen }) => {
       document.removeEventListener('keydown', onKeydown);
     };
   }, [toggleModal]);
+
+  useEffect(() => {
+    operations.dailyRate(fetchInfo).then(res => {
+      setFoodArray(res.notAllowedProducts);
+      setCalories(res.dailyRate);
+    });
+  });
 
   let flag = [styles.overlay, styles.isHidden];
 
@@ -44,11 +56,18 @@ const Modal = ({ toggleModal, isOpen }) => {
           </h2>
           <div className={styles.thumb}>
             <p className={styles.number}>
+              {calories}
               <span className={styles.text}>kcal</span>
             </p>
             <p className={styles.subtitle}>Foods you should not eat</p>
             <ol className={styles.list}>
-              <li className={styles.item}></li>
+              {foodArray.map(food => {
+                return (
+                  <li className={styles.item} key={nanoid()}>
+                    {food}
+                  </li>
+                );
+              })}
             </ol>
           </div>
           <div className={styles.btn}>
