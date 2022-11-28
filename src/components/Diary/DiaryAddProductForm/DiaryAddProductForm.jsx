@@ -20,7 +20,6 @@ const DiaryAddProductForm = () => {
     const data = await dispatch(operations.productFinder(e.target.value));
     setSearhData(data.payload);
     setShowMealArea(data.payload);
-    console.log(data);
     setProductIdToAdd('');
   };
 
