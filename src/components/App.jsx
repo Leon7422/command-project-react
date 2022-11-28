@@ -7,6 +7,7 @@ import { AppBar } from './AppBar/AppBar';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
 import Loader from './Loader/Loader';
+import { useContextInfo } from './dataContext/dataContext';
 
 const Home = lazy(() => import('../pages/Home/Home'));
 const Diary = lazy(() => import('../pages/Diary/Diary'));
@@ -18,14 +19,17 @@ const ErrorPage = lazy(() => import('../pages/ErrorPage/ErrorPage'));
 export const App = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectors.getIsLoading);
+  const { setNotAllowedProducts } = useContextInfo();
 
   useEffect(() => {
     async function fetchData() {
       await dispatch(operations.fetchCurrentUser());
-      dispatch(operations.userInfo());
+      const userInfo = await dispatch(operations.userInfo());
+      const notAllowed = userInfo.payload.userData.notAllowedProducts;
+      setNotAllowedProducts(notAllowed);
     }
     fetchData();
-  }, [dispatch]);
+  }, [dispatch, setNotAllowedProducts]);
 
   return (
     !isLoading && (
