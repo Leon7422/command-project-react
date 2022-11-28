@@ -83,3 +83,38 @@
 .item {
   margin-bottom: 15px;
 }
+
+.btn {
+  margin-top: 25px;
+  width: 210px;
+  margin-left: auto;
+  margin-right: auto;
+
+    padding: 0 23px;
+    min-width: 180px;
+    max-width: 210px;
+    height: 44px;
+    font-family: 'Verdana';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    background: #fc842d;
+    border: 1px solid #fc842d;
+    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    border-radius: 30px;
+    transition: 0.3s;
+    cursor: pointer;
+  
+    &:focus,
+    &:hover {
+      color: #fc842d;
+      background: white;
+      transform: translateY(-3px);
+    }
+  
+}

@@ -4,13 +4,20 @@ import Modal from 'components/Modal/Modal';
 import DairyModal from 'components/DairyModal/DairyModal';
 import css from './Home.module.scss';
 import Animation from 'components/Animation/Animation';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
+  const navigate = useNavigate();
   let [isModalOpened, setIsModalOpened] = useState(false);
 
   const toggleModal = () => {
     setIsModalOpened(!isModalOpened);
   };
+
+  const closeModal = () => {
+    setIsModalOpened(!isModalOpened);
+    navigate('/register')
+  }
 
   return (
     <section className={`${css['home__section']}`}>
@@ -20,7 +27,7 @@ export default function Home() {
         </div>
         {isModalOpened ? (
           <Modal toggleModal={toggleModal} isOpen={isModalOpened} >
-            <DairyModal/>
+            <DairyModal toggleModal={closeModal}/>
           </Modal>
         ) : (
           ''

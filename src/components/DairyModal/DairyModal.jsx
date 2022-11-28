@@ -1,7 +1,7 @@
 import styles from './DairyModal.module.scss';
 import { useContextInfo } from 'components/dataContext/dataContext';
 
-const DairyModal = () => {
+const DairyModal = ({toggleModal}) => {
   const { notAllowedProducts, dailyKcal } = useContextInfo();
   return (
     <>
@@ -19,6 +19,7 @@ const DairyModal = () => {
           ))}
         </ul>
       </div>
+      <button className={styles.btn} type="button" onClick={toggleModal}>Start losing weight</button>
     </>
   );
 };
