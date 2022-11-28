@@ -18,11 +18,11 @@ const Summary = () => {
         <ul className={styles.listInfo}>
           <li className={styles.listItem}>
             <span>Left</span>
-            <span>{summary?.kcalLeft || 0} kcal</span>
+            <span>{Math.round(summary?.kcalLeft) || 0} kcal</span>
           </li>
           <li className={styles.listItem}>
             <span>Consumed</span>
-            <span>{summary?.kcalConsumed || 0} kcal</span>
+            <span>{Math.round(summary?.kcalConsumed) || 0} kcal</span>
           </li>
           <li className={styles.listItem}>
             <span>Daily rate</span>
