@@ -110,7 +110,7 @@ const deleteProduct = createAsyncThunk(
   'product/delete',
   async (productInfo, thunkAPI) => {
     try {
-      const { data } = await axios.delete('/day', productInfo);
+      const { data } = await axios.delete('/day', { data: productInfo });
       return data;
     } catch (error) {}
   }

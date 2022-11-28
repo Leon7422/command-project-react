@@ -1,5 +1,5 @@
 import scss from '../DiaryProduct/DiaryProduct.module.scss';
-import { useContextInfo } from 'components/dateContext/dateContext';
+import { useContextInfo } from 'components/dataContext/dataContext';
 import { useEffect } from 'react';
 import operations from 'redux/operations';
 import { useDispatch } from 'react-redux';
@@ -16,12 +16,17 @@ const DiaryProduct = () => {
     );
   }, [dateForApi, dispatch, setProductListInfo]);
 
-  const deleteProduct = e => {
-    dispatch(
+  const deleteProduct = async e => {
+    await dispatch(
       operations.deleteProduct({
         dayId: productListInfo.payload.id,
         eatenProductId: e.target.id,
       })
+    );
+    dispatch(operations.fetchCurrentDateInfo({ date: dateForApi })).then(
+      res => {
+        setProductListInfo(res);
+      }
     );
   };
 

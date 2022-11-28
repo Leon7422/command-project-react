@@ -92,7 +92,11 @@ function LoginForm() {
               </li>
               <li className={styles.item}>
                 <a href="./register">
-                  <Button type={'button'} text={'Register'} />
+                  <Button
+                    type={'button'}
+                    text={'Register'}
+                    className={'btn-second'}
+                  />
                 </a>
               </li>
             </ul>

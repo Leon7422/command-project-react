@@ -4,6 +4,7 @@ import Summary from 'components/Summary/Summary';
 import DailyCaloriesForm from 'components/DailyCaloriesForm/DailyCaloriesForm';
 import { UserNavMob } from 'components/UserNavMob/UserNavMob';
 import Modal from 'components/Modal/Modal';
+import DairyModal from 'components/DairyModal/DairyModal';
 import css from './Diary.module.scss';
 
 export default function Diary() {
@@ -22,7 +23,9 @@ export default function Diary() {
         <DailyCaloriesForm openModal={toggleModal} />
         <Summary />
         {isModalOpened ? (
-          <Modal toggleModal={toggleModal} isOpen={isModalOpened} />
+          <Modal toggleModal={toggleModal} isOpen={isModalOpened}>
+            <DairyModal/>
+          </Modal>
         ) : (
           ''
         )}
