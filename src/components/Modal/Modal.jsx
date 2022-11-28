@@ -61,9 +61,10 @@ const Modal = ({ toggleModal, isOpen, fetchInfo }) => {
             </p>
             <p className={styles.subtitle}>Foods you should not eat</p>
             <ol className={styles.list}>
-              {foodArray.map(food => {
+              {foodArray.map((food, index) => {
                 return (
                   <li className={styles.item} key={nanoid()}>
+                    {`${index + 1}. `}
                     {food}
                   </li>
                 );
