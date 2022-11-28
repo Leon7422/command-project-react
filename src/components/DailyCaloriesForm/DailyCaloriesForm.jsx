@@ -1,17 +1,19 @@
 import { useDispatch } from 'react-redux';
-
 import operations from 'redux/operations';
 import Button from 'components/Button/Button';
 import css from './DailyCaloriesForm.module.scss';
 import { useSelector } from 'react-redux';
 import selectors from 'redux/selectors';
+import { useContextInfo } from 'components/dataContext/dataContext';
 
 const DailyCaloriesForm = ({ openModal }) => {
   const dispatch = useDispatch();
   const isLogIn = useSelector(selectors.getIsLoggedIn);
   const userId = useSelector(selectors.getUserId);
 
-  const handleSubmit = ev => {
+  const { setNotAllowedProducts, setDailyKcal } = useContextInfo();
+
+  const handleSubmit = async ev => {
     ev.preventDefault();
     const form = ev.currentTarget;
     const userInfo = {
@@ -22,11 +24,14 @@ const DailyCaloriesForm = ({ openModal }) => {
       bloodType: Number(form.bloodType.value),
     };
 
-    dispatch(
+    const userData = await dispatch(
       isLogIn
         ? operations.userDailyRate({ userInfo, userId })
         : operations.dailyRate(userInfo)
     );
+
+    setNotAllowedProducts(userData.payload.notAllowedProducts);
+    setDailyKcal(userData.payload.dailyRate);
   };
 
   return (

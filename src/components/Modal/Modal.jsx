@@ -3,7 +3,6 @@ import Button from 'components/Button/Button';
 import styles from './Modal.module.scss';
 
 const Modal = ({ toggleModal, isOpen, children }) => {
- 
   const onBackdropClick = ev => {
     if (ev.currentTarget === ev.target) {
       toggleModal();
