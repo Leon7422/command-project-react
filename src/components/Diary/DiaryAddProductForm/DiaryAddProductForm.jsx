@@ -2,7 +2,9 @@ import scss from '../DiaryAddProductForm/DiaryAddProductForm.module.scss';
 import operations from 'redux/operations';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { useContextInfo } from 'components/dateContext/dateContext';
+import { useContextInfo } from 'components/dataContext/dataContext';
+import SearchListArea from 'components/SearchListArea/SearchListArea';
+// import debounce from 'lodash.debounce';
 
 const DiaryAddProductForm = () => {
   const [productIdToAdd, setProductIdToAdd] = useState('');
@@ -21,6 +23,9 @@ const DiaryAddProductForm = () => {
     console.log(data);
     setProductIdToAdd('');
   };
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // const delayedSearch = debounce(findProduct, 500);
 
   const addGramValue = e => {
     setGramToAdd(e.target.value);
@@ -46,6 +51,8 @@ const DiaryAddProductForm = () => {
         setProductListInfo(res);
       }
     );
+    setSearchInputValue('');
+    setGramToAdd('');
   };
 
   return (
@@ -59,23 +66,11 @@ const DiaryAddProductForm = () => {
           value={searchInputValue}
         />
         {showMealArea && (
-          <div className={`${scss.searchArea}`}>
-            {searhData.map(item => (
-              <button
-                onClick={choseMeal}
-                className={`${scss.btnAdd}`}
-                type="button"
-                key={item._id}
-                id={item._id}
-                value={item.title.ru}
-              >
-                {item.title.ru}
-              </button>
-            ))}
-          </div>
+          <SearchListArea products={searhData} addFunc={choseMeal} />
         )}
         <input
           onChange={addGramValue}
+          value={gramToAdd}
           type="text"
           placeholder="Grams"
           className={`${scss.input} ${scss.grams}`}

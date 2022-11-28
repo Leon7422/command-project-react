@@ -23,11 +23,15 @@ export default function Calculator() {
           <DiaryDateCalendar />
           <DiaryAddProductForm />
           <DiaryProductList />
-          <button type='button' onClick={() => setIsModalOpened(true)} className={styles.buttonPlus}></button>
+          <button
+            type="button"
+            onClick={() => setIsModalOpened(true)}
+            className={styles.buttonPlus}
+          ></button>
         </div>
         <Summary />
         <Modal toggleModal={toggleModal} isOpen={isModalOpened}>
-          <MobileModal/>
+          <MobileModal closeModal={setIsModalOpened} />
         </Modal>
       </div>
     </section>

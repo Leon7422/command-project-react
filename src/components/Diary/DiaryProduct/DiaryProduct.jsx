@@ -1,5 +1,5 @@
 import scss from '../DiaryProduct/DiaryProduct.module.scss';
-import { useContextInfo } from 'components/dateContext/dateContext';
+import { useContextInfo } from 'components/dataContext/dataContext';
 import { useEffect } from 'react';
 import operations from 'redux/operations';
 import { useDispatch } from 'react-redux';
