@@ -4,31 +4,31 @@ const ErrorPage = () => {
   return (
     <div className={scss.wrapper}>
       <div>
-        <div class={scss.starsec}></div>
-        <div class={scss.starthird}></div>
-        <div class={scss.starfourth}></div>
-        <div class={scss.starfifth}></div>
+        <div className={scss.starsec}></div>
+        <div className={scss.starthird}></div>
+        <div className={scss.starfourth}></div>
+        <div className={scss.starfifth}></div>
       </div>
-      <div class={scss.lamp__wrap}>
-        <div class={scss.lamp}>
-          <div class={scss.cable}></div>
-          <div class={scss.cover}></div>
-          <div class={scss.inCover}>
-            <div class={scss.bulb}></div>
+      <div className={scss.lamp__wrap}>
+        <div className={scss.lamp}>
+          <div className={scss.cable}></div>
+          <div className={scss.cover}></div>
+          <div className={scss.inCover}>
+            <div className={scss.bulb}></div>
           </div>
-          <div class={scss.light}></div>
+          <div className={scss.light}></div>
         </div>
       </div>
-      <section class={scss.error}>
-        <div class={scss.error__content}>
-          <div class={scss.error__message}>
-            <h1 class={scss.message__title}>404</h1>
-            <h2 class={scss.message__title}>Page not found</h2>
+      <section className={scss.error}>
+        <div className={scss.error__content}>
+          <div className={scss.error__message}>
+            <h1 className={scss.message__title}>404</h1>
+            <h2 className={scss.message__title}>Page not found</h2>
           </div>
         </div>
       </section>
     </div>
   );
-}
+};
 
 export default ErrorPage;
