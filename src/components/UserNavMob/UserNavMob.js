@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { Link, useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import selectors from 'redux/selectors';
 import operations from 'redux/operations';
@@ -7,6 +8,8 @@ import css from './UserNavMob.module.scss';
 export function UserNavMob() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/';
 
   const userLogout = () => {
     dispatch(
@@ -19,7 +22,7 @@ export function UserNavMob() {
   return (
     <div className={`${css['user__navigation']}`}>
       <div className={css.btnThumb}>
-        <button type="button" className={css.btnClose}></button>
+        <Link to={backLinkHref} className={css.btnClose} />
       </div>
       <div className={`${css.bar}`}>
         <p className={css.paragraph}>{useSelector(selectors.getUserName)}</p>
