@@ -32,6 +32,7 @@ const DailyCaloriesForm = ({ openModal }) => {
 
     setNotAllowedProducts(userData.payload.notAllowedProducts);
     setDailyKcal(userData.payload.dailyRate);
+    openModal();
   };
 
   return (
@@ -48,6 +49,7 @@ const DailyCaloriesForm = ({ openModal }) => {
               min="0"
               name="height"
               className={`${css['diary__input']}`}
+              required
             ></input>
           </label>
           <label className={`${css['diary__label']}`}>
@@ -57,6 +59,7 @@ const DailyCaloriesForm = ({ openModal }) => {
               min="0"
               name="age"
               className={`${css['diary__input']}`}
+              required
             ></input>
           </label>
           <label className={`${css['diary__label']}`}>
@@ -66,6 +69,7 @@ const DailyCaloriesForm = ({ openModal }) => {
               min="0"
               name="currentWeight"
               className={`${css['diary__input']}`}
+              required
             ></input>
           </label>
           <label className={`${css['diary__label']}`}>
@@ -75,6 +79,7 @@ const DailyCaloriesForm = ({ openModal }) => {
               min="0"
               name="desiredWeight"
               className={`${css['diary__input']}`}
+              required
             ></input>
           </label>
           <p className={`${css['diary__label']}`}>Blood type *</p>
@@ -85,6 +90,7 @@ const DailyCaloriesForm = ({ openModal }) => {
                 name="bloodType"
                 value="1"
                 className={`${css['diary__input--radio']}`}
+                required
               />{' '}
               1
             </label>
@@ -94,6 +100,7 @@ const DailyCaloriesForm = ({ openModal }) => {
                 name="bloodType"
                 value="2"
                 className={`${css['diary__input--radio']}`}
+                required
               />{' '}
               2
             </label>
@@ -103,6 +110,7 @@ const DailyCaloriesForm = ({ openModal }) => {
                 name="bloodType"
                 value="3"
                 className={`${css['diary__input--radio']}`}
+                required
               />{' '}
               3
             </label>
@@ -112,17 +120,14 @@ const DailyCaloriesForm = ({ openModal }) => {
                 name="bloodType"
                 value="4"
                 className={`${css['diary__input--radio']}`}
+                required
               />{' '}
               4
             </label>
           </div>
         </div>
         <div className={`${css['diary__button']}`}>
-          <Button
-            text={'Start losing weight'}
-            type={'submit'}
-            openModal={openModal}
-          ></Button>
+          <Button text={'Start losing weight'} type={'submit'}></Button>
         </div>
       </form>
     </section>
