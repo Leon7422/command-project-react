@@ -58,11 +58,19 @@ const fetchCurrentUser = createAsyncThunk(
   }
 );
 
+// async function fetchData() {
+//   await dispatch(operations.fetchCurrentUser());
+//   const userInfo = await dispatch(operations.userInfo());
+//   const notAllowed = userInfo?.payload?.userData?.notAllowedProducts || [];
+//   setNotAllowedProducts(notAllowed);
+// }
+// fetchData();
+
 const userInfo = createAsyncThunk('auth/userInfo', async (_, thunkAPI) => {
   const state = thunkAPI.getState();
 
   const isLoggedIn = state.auth.isLoggedIn;
-  if (!isLoggedIn) {
+  if (isLoggedIn === false) {
     return thunkAPI.rejectWithValue();
   }
   try {
@@ -82,7 +90,10 @@ const productFinder = createAsyncThunk(
       }
       const { data } = await axios.get(`/product?search=${querry}`); //
       return data;
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+      return thunkAPI.rejectWithValue();
+    }
   }
 );
 

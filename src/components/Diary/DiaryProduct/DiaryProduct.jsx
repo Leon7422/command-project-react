@@ -1,12 +1,17 @@
 import scss from '../DiaryProduct/DiaryProduct.module.scss';
 import { useContextInfo } from 'components/dataContext/dataContext';
+import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import selectors from 'redux/selectors';
 import operations from 'redux/operations';
 import { useDispatch } from 'react-redux';
 
 const DiaryProduct = () => {
   const { dateForApi, productListInfo, setProductListInfo } = useContextInfo();
   const dispatch = useDispatch();
+  const token = useSelector(selectors.getAccessToken);
+  const newToken = useSelector(selectors.getRefreshToken);
+  const isLoggedIn = useSelector(selectors.getIsLoggedIn);
 
   useEffect(() => {
     dispatch(operations.fetchCurrentDateInfo({ date: dateForApi })).then(
@@ -14,7 +19,7 @@ const DiaryProduct = () => {
         setProductListInfo(res);
       }
     );
-  }, [dateForApi, dispatch, setProductListInfo]);
+  }, [dateForApi, dispatch, newToken, setProductListInfo, token]);
 
   const deleteProduct = async e => {
     await dispatch(

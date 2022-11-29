@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense, useMemo } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import operations from 'redux/operations';
@@ -19,17 +19,23 @@ const ErrorPage = lazy(() => import('../pages/ErrorPage/ErrorPage'));
 export const App = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectors.getIsLoading);
+  const isLoggedIn = useSelector(selectors.getIsLoggedIn);
   const { setNotAllowedProducts } = useContextInfo();
 
-  useEffect(() => {
+  useMemo(() => {
     async function fetchData() {
-      await dispatch(operations.fetchCurrentUser());
-      const userInfo = await dispatch(operations.userInfo());
-      const notAllowed = userInfo?.payload?.userData?.notAllowedProducts || [];
-      setNotAllowedProducts(notAllowed);
+      if (isLoggedIn === null) {
+        const test = await dispatch(operations.fetchCurrentUser());
+        if (test.payload) {
+          const userInfo = await dispatch(operations.userInfo());
+          const notAllowed =
+            userInfo?.payload?.userData?.notAllowedProducts || [];
+          setNotAllowedProducts(notAllowed);
+        }
+      }
     }
     fetchData();
-  }, [dispatch, setNotAllowedProducts]);
+  }, [dispatch, isLoggedIn, setNotAllowedProducts]);
 
   return (
     !isLoading && (
