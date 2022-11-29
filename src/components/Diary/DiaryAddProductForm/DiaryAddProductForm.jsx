@@ -38,6 +38,17 @@ const DiaryAddProductForm = () => {
 
   const addProduct = async e => {
     e.preventDefault();
+    if (dateForApi === '') {
+      return;
+    }
+
+    if (productIdToAdd === '') {
+      return;
+    }
+
+    if (gramToAdd === '') {
+      return;
+    }
     await dispatch(
       operations.productAddToList({
         date: dateForApi,

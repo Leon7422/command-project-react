@@ -8,7 +8,7 @@ const initialState = {
   accessToken: null,
   refreshToken: null,
   sid: null,
-  isLoggedIn: false,
+  isLoggedIn: null,
   isLoading: false,
 };
 
@@ -33,8 +33,15 @@ const authSlice = createSlice({
       state.sid = null;
       state.isLoggedIn = false;
     },
+    [operations.logOut.pending](state, action) {
+      state.isLoggedIn = false;
+    },
+    [operations.logOut.rejected](state, action) {
+      state.isLoggedIn = true;
+    },
     [operations.fetchCurrentUser.pending](state, action) {
       state.isLoading = true;
+      state.isLoggedIn = false;
     },
     [operations.fetchCurrentUser.fulfilled](state, action) {
       state.accessToken = action.payload?.newAccessToken;
@@ -50,6 +57,7 @@ const authSlice = createSlice({
       state.user.id = action.payload?.id;
       state.user.name = action.payload?.username;
       state.user.email = action.payload?.email;
+      state.isLoggedIn = true;
     },
     [operations.userInfo.rejected](state, action) {},
   },
